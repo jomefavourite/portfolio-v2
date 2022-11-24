@@ -19,6 +19,9 @@ module.exports = {
         design: "#E4F6FF",
         article: "#EBEEF0",
       },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+      },
     },
   },
   plugins: [],

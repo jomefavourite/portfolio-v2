@@ -1,8 +1,13 @@
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 body {
-  @apply bg-dark-main;
+  @apply bg-dark-main text-white;
 }
 
-@tailwind utilities;
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
