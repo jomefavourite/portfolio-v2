@@ -11,3 +11,7 @@ body {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+.text-heading {
+  @apply mb-5 text-2xl font-bold;
+}

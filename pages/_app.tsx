@@ -1,23 +1,44 @@
 import type { AppProps } from "next/app";
-import { Inter } from "@next/font/google";
+import { Mulish } from "@next/font/google";
 import "../styles/globals.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({
+const queryClient = new QueryClient();
+
+const mulish = Mulish({
   weight: ["400", "700"],
   // style: ["normal", "italic"],
-  subsets: ["latin"],
+  // subsets: ["latin"],
 });
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <>
       <style jsx global>{`
         html {
-          font-family: ${inter.style.fontFamily};
+          font-family: ${mulish.style.fontFamily};
+        }
+
+        body > div {
+          min-height: 100vh;
         }
       `}</style>
-      <Component {...pageProps} />
+
+      <QueryClientProvider client={queryClient}>
+        {getLayout(<Component {...pageProps} />)}
+      </QueryClientProvider>
     </>
   );
 }
