@@ -13,5 +13,5 @@ body {
 }
 
 .text-heading {
-  @apply mb-5 text-2xl font-bold;
+  @apply mb-5 text-2xl font-bold tracking-wider;
 }

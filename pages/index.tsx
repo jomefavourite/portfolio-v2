@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
+import { GiWorld } from "react-icons/gi";
 
 const Home: NextPage = () => {
   return (
@@ -48,9 +49,9 @@ const Home: NextPage = () => {
 
           <Link
             href='/explore'
-            className='mx-auto mt-4 block w-full max-w-[250px] rounded-md bg-[#2f2f2f] p-2 text-white'
+            className='mx-auto mt-4 flex w-full max-w-[250px] items-center justify-center gap-3 rounded-md bg-[#2f2f2f] p-2 text-white'
           >
-            Explore
+            Explore <GiWorld />
           </Link>
         </div>
       </main>

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { Layout } from "../components/Layout";
@@ -12,6 +13,9 @@ const Articles: NextPageWithLayout = () => {
   }
   return (
     <div>
+      <Head>
+        <title>Favourite Jome - Articles</title>
+      </Head>
       <h2 className='text-heading'>Articles</h2>
 
       <div className='space-y-4'>

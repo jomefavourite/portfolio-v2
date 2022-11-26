@@ -1,13 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import type { ReactElement, ReactNode } from "react";
 import Navigation from "./Navigation";
 import { useRouter } from "next/router";
 import { navigation } from "../utils";
+import { HiExternalLink } from "react-icons/hi";
+import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
+import { MdOutlineAlternateEmail } from "react-icons/md";
 
 export const Layout = ({ children }) => {
   const router = useRouter();
+
+  const socials: {
+    name: string;
+    link: string;
+    icon: React.ReactNode;
+  }[] = [
+    {
+      name: "Twitter",
+      icon: <AiOutlineTwitter />,
+      link: "https://twitter.com/favouritejome1",
+    },
+    {
+      name: "Github",
+      icon: <AiFillGithub />,
+      link: "https://github.com/jomefavourite",
+    },
+    {
+      name: "Email",
+      icon: <MdOutlineAlternateEmail />,
+      link: "mailto:jfjomefavourite@gmail.com",
+    },
+  ];
 
   return (
     <>
@@ -18,10 +42,13 @@ export const Layout = ({ children }) => {
             <h1 className='text-4xl font-bold'>Favourite Jome</h1>
             {/* <p className=''>Frontend Developer</p> */}
             <p className='max-w-sm text-sm text-lightGrey'>
-              I'm a <span className='text-white'>frontend developer</span>. I
-              create interactive experiences for amazing people using modern web
+              I'm a <span className='text-white'>frontend developer</span>.
+              {/* I create interactive experiences for amazing people using modern web
               technology. I am currently learning how to write immersive web
-              animations and also exploring the decentralized web.
+              animations and also exploring the decentralized web. */}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+              aperiam ut suscipit maxime eum commodi unde fuga. Est, ipsa
+              quidem!
             </p>
           </div>
 
@@ -67,24 +94,16 @@ export const Layout = ({ children }) => {
               }}
             />
 
-            <div className='ml-2 flex flex-col'>
-              <Link href='/' className='flex'>
-                Twitter
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='h-6 w-6'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25'
-                  />
-                </svg>
-              </Link>
+            <div className='ml-2 flex gap-3 '>
+              {socials.map((social, ind) => (
+                <Link href={social.link} className='flex items-center gap-2'>
+                  <span className='flex items-center gap-1'>
+                    {social.icon}
+                    {social.name}
+                  </span>
+                  <HiExternalLink />
+                </Link>
+              ))}
             </div>
           </div>
         </aside>

@@ -6,9 +6,9 @@ interface Nav {
 interface Projects {
   title: string;
   description: string;
-  live: string;
-  github: string;
-  tags: string[];
+  live: string | null;
+  github: string | null;
+  tags: string[] | null;
 }
 
 export const navigation: Nav[] = [
@@ -28,6 +28,10 @@ export const navigation: Nav[] = [
     href: "/articles",
     title: "Articles",
   },
+  {
+    href: "/resume",
+    title: "Resume",
+  },
 ];
 
 export const projects: Projects[] = [
@@ -38,5 +42,13 @@ export const projects: Projects[] = [
     live: "https://jf-algo-visual.vercel.app/",
     github: "https://github.com/jomefavourite/algo-visual",
     tags: ["Nextjs", "Typescript", "Tailwindcss"],
+  },
+  {
+    title: "PlanDone",
+    description:
+      "PlanDone is made for Students who would like to learn smart, be productive and access everything they need while studying in one place.",
+    live: "https://plandone-student.herokuapp.com/",
+    github: "https://github.com/jomefavourite/PlanDone",
+    tags: ["Node.js", "Express", "Ejs", "MongoDB"],
   },
 ];
