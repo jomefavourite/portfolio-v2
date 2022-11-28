@@ -1,24 +1,9 @@
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
+import Nav from "./Nav";
 
 const Navigation: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false as boolean);
-
-  interface Nav {
-    href: string;
-    title: string;
-  }
-
-  const navigation: Nav[] = [
-    {
-      href: "/",
-      title: "Home",
-    },
-    {
-      href: "/projects",
-      title: "Projects",
-    },
-  ];
 
   return (
     <nav className='container relative py-3 md:hidden'>
@@ -57,20 +42,12 @@ const Navigation: FunctionComponent = () => {
       `}</style>
 
       {isMenuOpen ? (
-        <div className='absolute h-screen w-full bg-white'>
-          <ul>
-            {navigation.map((nav, ind) => (
-              <li key={ind}>
-                <Link href='/' className='group flex items-center transition'>
-                  <span className='w-[20px]'>
-                    {ind === 0 ? "00" : `0${ind}`}
-                  </span>{" "}
-                  <span className='mx-2 inline-block h-px w-5 bg-[#5d5d5d] transition group-hover:w-8 group-hover:bg-white'></span>
-                  <span>{nav.title}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className='absolute mx-auto mt-12 h-screen w-full bg-dark-main text-center'>
+          <Nav
+            topNav={true}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+          />
         </div>
       ) : null}
     </nav>

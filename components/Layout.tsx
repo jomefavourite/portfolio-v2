@@ -2,15 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Navigation from "./Navigation";
-import { useRouter } from "next/router";
-import { navigation } from "../utils";
 import { HiExternalLink } from "react-icons/hi";
 import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+import Nav from "./Nav";
 
 export const Layout = ({ children }) => {
-  const router = useRouter();
-
   const socials: {
     name: string;
     link: string;
@@ -52,35 +49,8 @@ export const Layout = ({ children }) => {
             </p>
           </div>
 
-          <nav>
-            <ul className='space-y-4'>
-              {navigation.map((nav, ind) => (
-                <li key={ind}>
-                  <Link
-                    href={nav.href}
-                    className={`group flex w-fit items-center text-sm transition duration-300 ease-out ${
-                      router.pathname === nav.href
-                        ? "text-white"
-                        : "text-lightGrey"
-                    }`}
-                  >
-                    <span className='w-[20px] transition-colors duration-300 group-hover:text-white'>
-                      {ind === 0 ? "00" : `0${ind}`}
-                    </span>{" "}
-                    <span
-                      className={`mx-2 inline-block h-[2px] w-5 bg-[#5d5d5d] transition duration-300 group-hover:w-8 group-hover:bg-white ${
-                        router.pathname === nav.href
-                          ? "w-8 bg-white"
-                          : "w-5 bg-[#5d5d5d]"
-                      }`}
-                    ></span>
-                    <span className='uppercase transition-colors duration-300 group-hover:text-white'>
-                      {nav.title}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <nav className='hidden md:block'>
+            <Nav />
           </nav>
 
           <div className='flex items-center'>
