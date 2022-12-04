@@ -4,13 +4,19 @@ import Nav from "./Nav";
 
 const Navigation: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false as boolean);
+  
 
   return (
-    <nav className='container relative py-3 md:hidden'>
-      <div className='flex justify-between'>
-        <Link href='/'>
-          <h2 className='font-bold'>FavouriteJome.</h2>
-        </Link>
+    <nav className='sticky top-0 bg-[#15151569] py-3 shadow-lg backdrop-blur-[6px] md:hidden'>
+      <div className='container flex justify-between'>
+        <div>
+          <Link href='/'>
+            <h2 className='font-bold'>FavouriteJome.</h2>
+          </Link>
+
+          {/* Projects */}
+          {/* Resume */}
+        </div>
 
         <button
           type='button'

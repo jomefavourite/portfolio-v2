@@ -1,9 +1,9 @@
-interface Nav {
+export interface Nav {
   href: string;
   title: string;
 }
 
-interface Projects {
+export interface Project {
   title: string;
   description: string;
   live: string | null;
@@ -34,7 +34,7 @@ export const navigation: Nav[] = [
   },
 ];
 
-export const projects: Projects[] = [
+export const pinnedProjects: Project[] = [
   {
     title: "AlgoVisual",
     description:
@@ -47,8 +47,40 @@ export const projects: Projects[] = [
     title: "PlanDone",
     description:
       "PlanDone is made for Students who would like to learn smart, be productive and access everything they need while studying in one place.",
-    live: "https://plandone-student.herokuapp.com/",
+    live: "https://plandone.onrender.com/",
     github: "https://github.com/jomefavourite/PlanDone",
     tags: ["Node.js", "Express", "Ejs", "MongoDB"],
+  },
+  {
+    title: "CGPA-Result-Forecaster",
+    description:
+      "Calculate your GPA and CGPA score and from your score get the average estimate score to end up with a 1st, 2nd upper/lower class.",
+    live: "https://cgpaforecaster.vercel.app/",
+    github: "https://github.com/jomefavourite/CGPA-Result-Forecaster",
+    tags: ["JavaScript", "gpa-calculator", "cgpa-forecast"],
+  },
+];
+
+export const otherProjects: Project[] = [
+  {
+    title: "Faraday Events",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    live: "https://faraday-events.vercel.app/",
+    github: "",
+    tags: ["Nextjs", "Typescript", "Tailwindcss"],
+  },
+  {
+    title: "Faraday Events",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    live: "https://faraday-events.vercel.app/",
+    github: "",
+    tags: ["Nextjs", "Typescript", "Tailwindcss"],
+  },
+  {
+    title: "Faraday Events",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    live: "https://faraday-events.vercel.app/",
+    github: "",
+    tags: ["Nextjs", "Typescript", "Tailwindcss"],
   },
 ];

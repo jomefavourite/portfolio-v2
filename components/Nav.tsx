@@ -3,23 +3,22 @@ import { useRouter } from "next/router";
 import React from "react";
 import { navigation } from "../utils";
 
-const Nav = ({
-  topNav,
-  isMenuOpen,
-  setIsMenuOpen,
-}: {
+type NavProps = {
   topNav?: boolean;
   isMenuOpen?: boolean;
   setIsMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+};
+
+const Nav = ({ topNav, isMenuOpen, setIsMenuOpen }: NavProps) => {
   const router = useRouter();
+
   return (
     <ul className='space-y-4'>
       {navigation.map((nav, ind) => (
         <li
           key={ind}
           className={`${topNav ? "text-center" : "text-left"} mx-auto`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => (setIsMenuOpen ? setIsMenuOpen(!isMenuOpen) : null)}
         >
           <Link
             href={nav.href}
