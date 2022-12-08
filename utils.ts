@@ -9,7 +9,14 @@ export interface Project {
   live: string | null;
   github: string | null;
   tags: string[] | null;
+  desLink?: string;
 }
+
+export type Socials = {
+  name: string;
+  link: string;
+  icon: React.ReactNode;
+};
 
 export const navigation: Nav[] = [
   {
@@ -62,6 +69,14 @@ export const pinnedProjects: Project[] = [
 ];
 
 export const otherProjects: Project[] = [
+  {
+    title: "Faraday Event",
+    description: `Event Manger App for Faraday Africa Community. Co-created with`,
+    live: "https://events.faraday.africa/",
+    github: "",
+    tags: ["React", "Airtable", "Tailwindcss"],
+    desLink: "https://github.com/nworiekingslee",
+  },
   {
     title: "Faraday Events",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",

@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         "dark-main": "#151515",
         darkCard: "#202022",
-        lightGrey: "#5d5d5d",
+        lightGrey: "#828282",
       },
       fontFamily: {
         sans: ["var(--font-mulish)"],

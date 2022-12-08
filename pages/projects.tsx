@@ -7,23 +7,23 @@ import ProjectCard from "../components/ProjectCard";
 
 const Projects: NextPageWithLayout = () => {
   return (
-    <div>
+    <div className='mb-14 space-y-8'>
       <Head>
         <title>Favourite Jome - Projects</title>
       </Head>
       {/* <h2 className='text-heading'>Projects</h2> */}
 
       <div className='space-y-3'>
-        <h3>Pinned</h3>
+        <h2 className='uppercase text-lightGrey'>Pinned</h2>
         {pinnedProjects.map((project, ind) => (
           <ProjectCard project={project} />
         ))}
       </div>
 
-      <div>
-        <h3>Other Projects</h3>
+      <div className='space-y-3'>
+        <h2 className='uppercase text-lightGrey'>Other Projects</h2>
 
-        <div className='grid grid-cols-2 gap-3'>
+        <div className=' grid gap-3 md:grid-cols-2'>
           {otherProjects.map((project) => (
             <ProjectCard project={project} />
           ))}

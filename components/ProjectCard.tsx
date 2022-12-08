@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { HiCode, HiExternalLink } from "react-icons/hi";
 import { Project } from "../utils";
@@ -18,7 +19,12 @@ const ProjectCard = ({ project }: ProjectProps) => {
         </p>
       </div>
 
-      <p className=' text-lightGrey'>{project.description}</p>
+      <p className=' text-lightGrey'>
+        {project.description}{" "}
+        {project.desLink ? (
+          <Link href={project.desLink}> @nworiekingslee </Link>
+        ) : null}
+      </p>
 
       <div className='flex items-center space-x-3 text-lightGrey'>
         {project.live ? (

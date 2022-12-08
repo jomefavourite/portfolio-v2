@@ -16,7 +16,7 @@ const ARTICLE_QUERY = `
   }
 `;
 
-interface PostResponse {
+export interface PostResponse {
   title: string;
   brief: string;
   slug: string;

@@ -1,22 +1,30 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { FunctionComponent } from "react";
 import Nav from "./Nav";
 
 const Navigation: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false as boolean);
-  
+  const router = useRouter();
+
+  const routeToBeShown = ["projects", "resume", "articles"];
+
+  console.log(router.route);
 
   return (
     <nav className='sticky top-0 bg-[#15151569] py-3 shadow-lg backdrop-blur-[6px] md:hidden'>
-      <div className='container flex justify-between'>
-        <div>
-          <Link href='/'>
-            <h2 className='font-bold'>FavouriteJome.</h2>
-          </Link>
-
-          {/* Projects */}
-          {/* Resume */}
-        </div>
+      <div className='container z-30 flex justify-between'>
+        <h2 className='flex gap-3 font-bold'>
+          <Link href='/'>FavouriteJome.</Link>
+          {routeToBeShown.includes(router.route.slice(1)) && (
+            <>
+              /
+              <span className='capitalize tracking-wider'>
+                {router.route.slice(1)}
+              </span>
+            </>
+          )}
+        </h2>
 
         <button
           type='button'
@@ -47,8 +55,10 @@ const Navigation: FunctionComponent = () => {
         }
       `}</style>
 
+      {/* Mobile */}
+
       {isMenuOpen ? (
-        <div className='absolute mx-auto mt-12 h-screen w-full bg-dark-main text-center'>
+        <div className='absolute  mx-auto h-screen w-full bg-dark-main pt-20 text-center'>
           <Nav
             topNav={true}
             isMenuOpen={isMenuOpen}

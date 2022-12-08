@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import ArticleCard from "../components/ArticleCard";
 import { Layout } from "../components/Layout";
 import { useBlogPost } from "../hooks/useBlogPost";
 import { NextPageWithLayout } from "./_app";
@@ -16,31 +17,21 @@ const Articles: NextPageWithLayout = () => {
       <Head>
         <title>Favourite Jome - Articles</title>
       </Head>
-      <h2 className='text-heading'>Articles</h2>
 
-      <div className='space-y-4'>
+      <h2 className='mb-3 uppercase text-lightGrey'>Recent (6)</h2>
+
+      <div className='grid gap-4 md:grid-cols-2'>
         {data.map((post, ind) => {
-          return (
-            <Link
-              key={ind}
-              href={`https://favouritejome.hashnode.dev/${post.slug}`}
-              className='block bg-darkCard p-3'
-            >
-              <p className='text-sm'>
-                {new Date(post.dateAdded).toDateString()}
-              </p>
-              <h3 className='text-lg'>{post.title}</h3>
-            </Link>
-          );
+          return <ArticleCard key={ind} post={post} />;
         })}
       </div>
 
-      <a
+      <Link
         href='https://favouritejome.hashnode.dev/'
-        className='mx-auto inline-block text-center '
+        className='text- mx-auto my-10 block text-center '
       >
         View All
-      </a>
+      </Link>
     </div>
   );
 };
