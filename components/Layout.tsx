@@ -35,9 +35,7 @@ export const Layout = ({ children }) => {
           <div className='fixed h-[calc(100vh-5rem)]'>
             <div className='h-full flex-col justify-between md:flex'>
               <div className='space-y-3'>
-                <h1 className='text-4xl font-bold underline '>
-                  Favourite Jome
-                </h1>
+                <h1 className='font-bold md:text-6xl'>Favourite Jome</h1>
                 {/* <p className=''>Frontend Developer</p> */}
                 <p className='max-w-sm text-sm text-lightGrey'>
                   I'm a <span className='text-white'>frontend developer</span>.
@@ -87,7 +85,7 @@ export const Layout = ({ children }) => {
         <section className='w-full'>{children}</section>
 
         <footer
-          className='bg -darkBg pointer-events-none fixed bottom-0 z-20 h-20 w-full'
+          className='pointer-events-none fixed left-0 bottom-0 z-20 h-20 w-full'
           style={{
             background: "linear-gradient(180deg,hsla(0,0%,8%,0),#151515)",
           }}

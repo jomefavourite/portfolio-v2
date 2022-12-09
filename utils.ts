@@ -24,10 +24,6 @@ export const navigation: Nav[] = [
     title: "Home",
   },
   {
-    href: "/explore",
-    title: "Explore",
-  },
-  {
     href: "/projects",
     title: "Projects",
   },
@@ -74,27 +70,30 @@ export const otherProjects: Project[] = [
     description: `Event Manger App for Faraday Africa Community. Co-created with`,
     live: "https://events.faraday.africa/",
     github: "",
-    tags: ["React", "Airtable", "Tailwindcss"],
+    tags: ["ReactJS", "Airtable", "Tailwindcss"],
     desLink: "https://github.com/nworiekingslee",
   },
   {
-    title: "Faraday Events",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    live: "https://faraday-events.vercel.app/",
+    title: "RunTechSpace",
+    description:
+      "A community platform for tech enthusiasts at Redeemer's University",
+    live: "https://runtechspace.com/",
     github: "",
-    tags: ["Nextjs", "Typescript", "Tailwindcss"],
+    tags: ["Nextjs", "Tailwindcss"],
   },
   {
-    title: "Faraday Events",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    live: "https://faraday-events.vercel.app/",
-    github: "",
-    tags: ["Nextjs", "Typescript", "Tailwindcss"],
+    title: "Faraday Africa",
+    description:
+      "Faraday is a Community driven Ed-tech solution improving the learning experience for Students in tertiary institutions. I'm one of the contributors, building the platform.",
+    live: "https://www.faraday.africa/",
+    github: "https://github.com/faradayafrica/Faraday-frontend",
+    tags: ["ReactJS", "Airtable", "Tailwindcss"],
   },
+
   {
-    title: "Faraday Events",
+    title: "Portfolio V2",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    live: "https://faraday-events.vercel.app/",
+    live: "",
     github: "",
     tags: ["Nextjs", "Typescript", "Tailwindcss"],
   },

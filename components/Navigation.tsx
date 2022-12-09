@@ -12,7 +12,7 @@ const Navigation: FunctionComponent = () => {
   console.log(router.route);
 
   return (
-    <nav className='sticky top-0 bg-[#15151569] py-3 shadow-lg backdrop-blur-[6px] md:hidden'>
+    <nav className='sticky top-0 z-50 bg-[#15151569] py-3 shadow-inner backdrop-blur-[6px] md:hidden'>
       <div className='container z-30 flex justify-between'>
         <h2 className='flex gap-3 font-bold'>
           <Link href='/'>FavouriteJome.</Link>

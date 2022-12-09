@@ -2,12 +2,17 @@ import Link from "next/link";
 import React from "react";
 import { HiCode, HiExternalLink } from "react-icons/hi";
 import { Project } from "../utils";
+import Card from "./Card";
 
-type ProjectProps = { project: Project };
+type ProjectProps = {
+  project: Project;
+  ind: number;
+  type?: "box" | "card" | undefined;
+};
 
-const ProjectCard = ({ project }: ProjectProps) => {
+const ProjectCard = ({ project, ind, type }: ProjectProps) => {
   return (
-    <div className='space-y-3 bg-darkCard p-3 px-5'>
+    <Card ind={ind} type={type}>
       <div>
         <h3 className='mb-1 text-2xl tracking-wider'>{project.title}</h3>
         <p className='text-[10px] font-medium uppercase tracking-widest text-lightGrey'>
@@ -19,7 +24,7 @@ const ProjectCard = ({ project }: ProjectProps) => {
         </p>
       </div>
 
-      <p className=' text-lightGrey'>
+      <p className=' py-3 text-lightGrey'>
         {project.description}{" "}
         {project.desLink ? (
           <Link href={project.desLink}> @nworiekingslee </Link>
@@ -45,7 +50,7 @@ const ProjectCard = ({ project }: ProjectProps) => {
           </a>
         ) : null}
       </div>
-    </div>
+    </Card>
   );
 };
 

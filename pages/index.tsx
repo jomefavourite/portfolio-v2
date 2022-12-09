@@ -70,7 +70,7 @@ const Home: NextPage = () => {
           </p>
 
           <Link
-            href='/explore'
+            href='/projects'
             className='mx-auto mt-4 flex w-full max-w-[250px] items-center justify-center gap-3 rounded-md bg-[#2f2f2f] p-2 text-white'
           >
             Explore <GiWorld />

@@ -13,19 +13,22 @@ const Projects: NextPageWithLayout = () => {
       </Head>
       {/* <h2 className='text-heading'>Projects</h2> */}
 
-      <div className='space-y-3'>
-        <h2 className='uppercase text-lightGrey'>Pinned</h2>
-        {pinnedProjects.map((project, ind) => (
-          <ProjectCard project={project} />
-        ))}
+      <div>
+        <h2 className='mb-2 uppercase text-lightGrey'>Pinned</h2>
+
+        <div className='group space-y-2'>
+          {pinnedProjects.map((project, ind) => (
+            <ProjectCard project={project} ind={ind} />
+          ))}
+        </div>
       </div>
 
       <div className='space-y-3'>
         <h2 className='uppercase text-lightGrey'>Other Projects</h2>
 
-        <div className=' grid gap-3 md:grid-cols-2'>
-          {otherProjects.map((project) => (
-            <ProjectCard project={project} />
+        <div className='group grid gap-2 md:grid-cols-2'>
+          {otherProjects.map((project, ind) => (
+            <ProjectCard project={project} ind={ind} type='box' />
           ))}
         </div>
       </div>

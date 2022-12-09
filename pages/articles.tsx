@@ -20,7 +20,7 @@ const Articles: NextPageWithLayout = () => {
 
       <h2 className='mb-3 uppercase text-lightGrey'>Recent (6)</h2>
 
-      <div className='grid gap-4 md:grid-cols-2'>
+      <div className='group grid gap-2 md:grid-cols-2 md:grid-rows-3'>
         {data.map((post, ind) => {
           return <ArticleCard key={ind} post={post} />;
         })}
