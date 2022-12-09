@@ -23,19 +23,23 @@ export interface PostResponse {
   dateAdded: string;
 }
 
+const getArticle = async () => {
+  const response = await axios({
+    url: endpoint,
+    method: "POST",
+    data: {
+      query: ARTICLE_QUERY,
+    },
+  });
+
+  // console.log(response.data.data.user.publication.posts);
+
+  return response.data.data.user.publication.posts as PostResponse[];
+};
+
 export const useBlogPost = (username: string) => {
-  const blogpost = useQuery(["articles", username], async () => {
-    const response = await axios({
-      url: endpoint,
-      method: "POST",
-      data: {
-        query: ARTICLE_QUERY,
-      },
-    });
-
-    // console.log(response.data.data.user.publication.posts);
-
-    return response.data.data.user.publication.posts as PostResponse[];
+  const blogpost = useQuery(["articles", username], getArticle, {
+    refetchOnWindowFocus: false,
   });
 
   return blogpost;

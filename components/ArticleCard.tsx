@@ -9,9 +9,11 @@ type ArticleCardProps = { post: PostResponse };
 function ArticleCard({ post }: ArticleCardProps) {
   return (
     <Card>
-      <Link
+      <a
         href={`https://favouritejome.hashnode.dev/${post.slug}`}
         className='flex h-full flex-col justify-between'
+        target='_blank'
+        rel='noreferrer'
       >
         <p className='text-sm text-lightGrey'>
           {new Date(post.dateAdded).toDateString()}
@@ -23,7 +25,7 @@ function ArticleCard({ post }: ArticleCardProps) {
           <AiOutlineRead />
           <p>Read</p>
         </div>
-      </Link>
+      </a>
     </Card>
   );
 }

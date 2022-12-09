@@ -15,3 +15,36 @@ body {
 .text-heading {
   @apply mb-5 text-2xl font-bold tracking-wider;
 }
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}

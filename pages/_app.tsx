@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { Mulish } from "@next/font/google";
+import { Inter } from "@next/font/google";
 import "../styles/globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { ReactElement, ReactNode } from "react";
@@ -7,7 +7,12 @@ import type { NextPage } from "next";
 
 const queryClient = new QueryClient();
 
-const mulish = Mulish({
+// const mulish = Mulish({
+//   weight: ["400", "700"],
+//   // style: ["normal", "italic"],
+//   // subsets: ["latin"],
+// });
+const inter = Inter({
   weight: ["400", "700"],
   // style: ["normal", "italic"],
   // subsets: ["latin"],
@@ -28,7 +33,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <>
       <style jsx global>{`
         html {
-          font-family: ${mulish.style.fontFamily};
+          font-family: ${inter.style.fontFamily};
         }
 
         body > div {

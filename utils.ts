@@ -31,10 +31,10 @@ export const navigation: Nav[] = [
     href: "/articles",
     title: "Articles",
   },
-  {
-    href: "/resume",
-    title: "Resume",
-  },
+  // {
+  //   href: "/resume",
+  //   title: "Resume",
+  // },
 ];
 
 export const pinnedProjects: Project[] = [
@@ -52,7 +52,7 @@ export const pinnedProjects: Project[] = [
       "PlanDone is made for Students who would like to learn smart, be productive and access everything they need while studying in one place.",
     live: "https://plandone.onrender.com/",
     github: "https://github.com/jomefavourite/PlanDone",
-    tags: ["Node.js", "Express", "Ejs", "MongoDB"],
+    tags: ["Node.js", "Express", "Ejs", "MongoDB", "SASS"],
   },
   {
     title: "CGPA-Result-Forecaster",
@@ -94,7 +94,7 @@ export const otherProjects: Project[] = [
     title: "Portfolio V2",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     live: "",
-    github: "",
+    github: "https://github.com/jomefavourite/portfolio-v2",
     tags: ["Nextjs", "Typescript", "Tailwindcss"],
   },
 ];

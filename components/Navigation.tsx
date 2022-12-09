@@ -1,18 +1,43 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { FunctionComponent } from "react";
+import React, { useState } from "react";
+import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import { SiLinkedin } from "react-icons/si";
+import { Socials } from "../utils";
 import Nav from "./Nav";
 
-const Navigation: FunctionComponent = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false as boolean);
+const socials: Socials[] = [
+  {
+    name: "Twitter",
+    icon: <AiOutlineTwitter />,
+    link: "https://twitter.com/favouritejome1",
+  },
+  {
+    name: "Github",
+    icon: <AiFillGithub />,
+    link: "https://github.com/jomefavourite",
+  },
+  {
+    name: "Email",
+    icon: <MdOutlineAlternateEmail />,
+    link: "mailto:jfjomefavourite@gmail.com",
+  },
+  {
+    name: "LinkedIn",
+    icon: <SiLinkedin />,
+    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+  },
+];
+
+const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const router = useRouter();
 
   const routeToBeShown = ["projects", "resume", "articles"];
 
-  console.log(router.route);
-
   return (
-    <nav className='sticky top-0 z-50 bg-[#15151569] py-3 shadow-inner backdrop-blur-[6px] md:hidden'>
+    <nav className='sticky top-0 z-50 bg-[#15151569] py-5 shadow-inner backdrop-blur-[6px] lg:hidden'>
       <div className='container z-30 flex justify-between'>
         <h2 className='flex gap-3 font-bold'>
           <Link href='/'>FavouriteJome.</Link>
@@ -53,17 +78,41 @@ const Navigation: FunctionComponent = () => {
         body {
           ${isMenuOpen ? "overflow: hidden;" : ""}
         }
+
+        @media (min-width: 1024px) {
+          body {
+            overflow: auto;
+          }
+        }
       `}</style>
 
       {/* Mobile */}
 
       {isMenuOpen ? (
-        <div className='absolute  mx-auto h-screen w-full bg-dark-main pt-20 text-center'>
+        <div className='fadeIn absolute top-0 -z-20 mx-auto h-screen w-full space-y-10 bg-dark-main pt-28 text-center'>
           <Nav
             topNav={true}
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen}
           />
+
+          <div>
+            <h3 className='italic text-white'>Connect with me on:</h3>
+
+            <div className='mt-2 space-x-2 text-2xl text-lightGrey'>
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.link}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='inline-block transition-colors duration-200 hover:text-white'
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       ) : null}
     </nav>

@@ -12,7 +12,7 @@ module.exports = {
         lightGrey: "#828282",
       },
       fontFamily: {
-        sans: ["var(--font-mulish)"],
+        sans: ["var(--font-inter)"],
       },
     },
   },
