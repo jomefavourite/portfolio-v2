@@ -27,7 +27,7 @@ const ProjectCard = ({ project, ind, type }: ProjectProps) => {
       <p className=' py-3 text-lightGrey'>
         {project.description}{" "}
         {project.desLink ? (
-          <a href={project.desLink} target='_blank'>
+          <a href={project.desLink} target='_blank' rel='noreferrer'>
             {" "}
             @nworiekingslee{" "}
           </a>
@@ -40,6 +40,7 @@ const ProjectCard = ({ project, ind, type }: ProjectProps) => {
             href={project.live}
             className='flex items-center gap-1 text-sm transition-colors duration-300 hover:text-white'
             target='_blank'
+            rel='noreferrer'
           >
             <HiExternalLink /> Live
           </a>
@@ -49,6 +50,7 @@ const ProjectCard = ({ project, ind, type }: ProjectProps) => {
             href={project.github}
             className='flex items-center gap-1 text-sm transition-colors duration-300 hover:text-white'
             target='_blank'
+            rel='noreferrer'
           >
             <HiCode />
             Code

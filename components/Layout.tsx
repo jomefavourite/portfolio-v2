@@ -45,11 +45,12 @@ export const Layout = ({ children }) => {
                 <h1 className='font-bold md:text-5xl'>Favourite Jome</h1>
                 {/* <p className=''>Frontend Developer</p> */}
                 <p className='max-w-sm text-sm leading-relaxed text-lightGrey'>
-                  I'm a <span className='text-white'>frontend developer</span>{" "}
-                  and I create <span className='text-white'>interactive</span>{" "}
-                  web applications using frontend technologies, keeping in mind
-                  the <span className='text-white'>user experience</span> and
-                  the best <span className='text-white'>web standards</span>.{" "}
+                  I&apos;m a{" "}
+                  <span className='text-white'>frontend developer</span> and I
+                  create <span className='text-white'>interactive</span> web
+                  applications using frontend technologies, keeping in mind the{" "}
+                  <span className='text-white'>user experience</span> and the
+                  best <span className='text-white'>web standards</span>.{" "}
                   <span className='block'>
                     Also I love <span className='text-white'>learning</span>{" "}
                     about new technologies and{" "}

@@ -86,12 +86,12 @@ const Home: NextPage = () => {
             }}
           />
 
-          <h1 className=' mb-2 text-2xl font-medium md:text-4xl'>
+          <h1 className='mb-2 text-2xl font-medium md:text-4xl'>
             Hi, I am Favourite Jome
           </h1>
           <p className='mx-auto max-w-md text-sm leading-relaxed text-lightGrey'>
-            I'm a <span className='text-white'>frontend developer</span> and I
-            create <span className='text-white'>interactive</span> web
+            I&apos;m a <span className='text-white'>frontend developer</span>{" "}
+            and I create <span className='text-white'>interactive</span> web
             applications using frontend technologies, keeping in mind the{" "}
             <span className='text-white'>user experience</span> and the best{" "}
             <span className='text-white'>web standards</span>.{" "}
@@ -134,7 +134,7 @@ const Home: NextPage = () => {
             href='https://www.kingslee.me/'
             className='text-white'
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             title="Kingsley's Portfolio"
           >
             kingslee.me
@@ -144,7 +144,7 @@ const Home: NextPage = () => {
             href='https://kadet.dev/'
             className='text-white'
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             title="Kadet's Portfolio"
           >
             kadet.dev
@@ -154,7 +154,7 @@ const Home: NextPage = () => {
             href='https://www.sarahdayan.dev/'
             className='text-white'
             target='_blank'
-            rel='noopener'
+            rel='noreferrer'
             title="Sarah's Portfolio"
           >
             sarahdayan.dev
