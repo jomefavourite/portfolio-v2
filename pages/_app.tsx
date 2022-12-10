@@ -36,9 +36,14 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           font-family: ${inter.style.fontFamily};
         }
 
-        body > div {
-          min-height: 100vh;
+        html,
+        body {
+          height: 100%;
         }
+
+        // body > div {
+        //   min-height: 200%;
+        // }
       `}</style>
 
       <QueryClientProvider client={queryClient}>

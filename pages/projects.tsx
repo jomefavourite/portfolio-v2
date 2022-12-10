@@ -10,15 +10,22 @@ const Projects: NextPageWithLayout = () => {
     <div className='mb-14 space-y-8'>
       <Head>
         <title>Favourite Jome - Projects</title>
+        <meta name='description' content='Favourite Jome several projects' />
       </Head>
       {/* <h2 className='text-heading'>Projects</h2> */}
+
+      <style jsx global>{`
+        body > div {
+          min-height: 200%;
+        }
+      `}</style>
 
       <div>
         <h2 className='mb-2 uppercase text-lightGrey'>Pinned</h2>
 
         <div className='group space-y-2'>
           {pinnedProjects.map((project, ind) => (
-            <ProjectCard project={project} ind={ind} />
+            <ProjectCard key={ind} project={project} ind={ind} />
           ))}
         </div>
       </div>
@@ -28,7 +35,7 @@ const Projects: NextPageWithLayout = () => {
 
         <div className='group grid gap-2 md:grid-cols-2'>
           {otherProjects.map((project, ind) => (
-            <ProjectCard project={project} ind={ind} type='box' />
+            <ProjectCard key={ind} project={project} ind={ind} type='box' />
           ))}
         </div>
       </div>

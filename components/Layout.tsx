@@ -138,14 +138,13 @@ export const Layout = ({ children }) => {
             </a>
           </p>
         </section>
-
-        <footer
-          className='pointer-events-none fixed left-0 bottom-0 z-20 h-20 w-full'
-          style={{
-            background: "linear-gradient(180deg,#14141400,#151515)",
-          }}
-        ></footer>
       </main>
+      <footer
+        className='pointer-events-none fixed left-0 bottom-0 z-20 h-20 w-full'
+        style={{
+          background: "linear-gradient(180deg,#14141400,#151515)",
+        }}
+      ></footer>
     </>
   );
 };

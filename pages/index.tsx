@@ -41,7 +41,7 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Favourite Jome Portfolio</title>
-        <meta name='description' content='' />
+        <meta name='description' content='Favourite Jome portfolio page' />
         <link rel='icon' href='/favicon.ico' />
         <link
           rel='apple-touch-icon'
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
             applications using frontend technologies, keeping in mind the{" "}
             <span className='text-white'>user experience</span> and the best{" "}
             <span className='text-white'>web standards</span>.{" "}
-            <span className='block'>
+            <span className=''>
               Also I love <span className='text-white'>learning</span> about new
               technologies and <span className='text-white'>sharing</span> my
               own knowledge with others.
@@ -114,24 +114,49 @@ const Home: NextPage = () => {
       <footer className='fadeIn container py-4 text-center'>
         <div className='mb-2 flex items-center justify-center gap-3'>
           {socials.map((social, ind) => (
-            <Link href={social.link} className=' flex items-center gap-2'>
+            <a
+              key={ind}
+              href={social.link}
+              className=' flex items-center gap-2'
+              target='_blank'
+              rel='noreferrer'
+              title={social.name}
+            >
               <span className='flex items-center gap-1 text-2xl'>
                 {social.icon}
               </span>
-            </Link>
+            </a>
           ))}
         </div>
         <p className='text-sm text-lightGrey'>
           Inspired by{" "}
-          <a href='https://www.kingslee.me/' className='text-white'>
+          <a
+            href='https://www.kingslee.me/'
+            className='text-white'
+            target='_blank'
+            rel='noopener'
+            title="Kingsley's Portfolio"
+          >
             kingslee.me
           </a>{" "}
           |{" "}
-          <a href='https://kadet.dev/' className='text-white'>
+          <a
+            href='https://kadet.dev/'
+            className='text-white'
+            target='_blank'
+            rel='noopener'
+            title="Kadet's Portfolio"
+          >
             kadet.dev
           </a>{" "}
           |{" "}
-          <a href='https://www.sarahdayan.dev/' className='text-white'>
+          <a
+            href='https://www.sarahdayan.dev/'
+            className='text-white'
+            target='_blank'
+            rel='noopener'
+            title="Sarah's Portfolio"
+          >
             sarahdayan.dev
           </a>
         </p>

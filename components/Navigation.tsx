@@ -52,6 +52,7 @@ const Navigation = () => {
         </h2>
 
         <button
+          aria-label='Menu'
           type='button'
           name='hamburger'
           className='space-y-1'

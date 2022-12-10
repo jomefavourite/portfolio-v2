@@ -92,7 +92,7 @@ export const otherProjects: Project[] = [
 
   {
     title: "Portfolio V2",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    description: "Hey, this is my portfolio",
     live: "",
     github: "https://github.com/jomefavourite/portfolio-v2",
     tags: ["Nextjs", "Typescript", "Tailwindcss"],
