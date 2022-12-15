@@ -1,9 +1,10 @@
 import React from "react";
-import { Layout } from "../components/Layout";
-import { otherProjects, pinnedProjects } from "../utils";
-import { NextPageWithLayout } from "./_app";
+import { Layout } from "../../components/Layout";
+import { otherProjects, pinnedProjects } from "../../utils";
+import { NextPageWithLayout } from "../_app";
 import Head from "next/head";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../../components/ProjectCard";
+import Link from "next/link";
 
 const Projects: NextPageWithLayout = () => {
   return (
@@ -38,6 +39,15 @@ const Projects: NextPageWithLayout = () => {
             <ProjectCard key={ind} project={project} ind={ind} type='box' />
           ))}
         </div>
+      </div>
+
+      <div className='w-full text-center'>
+        <Link
+          href='/projects/all-project'
+          className='my-10  inline-block text-center underline'
+        >
+          View All Projects
+        </Link>
       </div>
     </div>
   );

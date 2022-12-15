@@ -24,6 +24,10 @@ export const navigation: Nav[] = [
     title: "Home",
   },
   {
+    href: "/about",
+    title: "About",
+  },
+  {
     href: "/projects",
     title: "Projects",
   },
@@ -35,6 +39,10 @@ export const navigation: Nav[] = [
   //   href: "/resume",
   //   title: "Resume",
   // },
+  {
+    href: "/experiences",
+    title: "Experiences",
+  },
 ];
 
 export const pinnedProjects: Project[] = [
