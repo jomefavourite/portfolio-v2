@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Projects: NextPageWithLayout = () => {
   return (
-    <div className='mb-14 space-y-8'>
+    <div className=' '>
       <Head>
         <title>Favourite Jome - Projects</title>
         <meta name='description' content='Favourite Jome several projects' />
@@ -21,30 +21,32 @@ const Projects: NextPageWithLayout = () => {
         }
       `}</style>
 
-      <div>
-        <h2 className='mb-2 uppercase text-lightGrey'>Pinned</h2>
+      <div className='space-y-8'>
+        <div>
+          <h2 className='mb-2 uppercase text-lightGrey'>Pinned</h2>
 
-        <div className='group space-y-2'>
-          {pinnedProjects.map((project, ind) => (
-            <ProjectCard key={ind} project={project} ind={ind} />
-          ))}
+          <div className='group space-y-2'>
+            {pinnedProjects.map((project, ind) => (
+              <ProjectCard key={ind} project={project} ind={ind} />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className='space-y-3'>
-        <h2 className='uppercase text-lightGrey'>Other Projects</h2>
+        <div className='space-y-3'>
+          <h2 className='uppercase text-lightGrey'>Other Projects</h2>
 
-        <div className='group grid gap-2 md:grid-cols-2'>
-          {otherProjects.map((project, ind) => (
-            <ProjectCard key={ind} project={project} ind={ind} type='box' />
-          ))}
+          <div className='group grid gap-2 md:grid-cols-2'>
+            {otherProjects.map((project, ind) => (
+              <ProjectCard key={ind} project={project} ind={ind} type='box' />
+            ))}
+          </div>
         </div>
       </div>
 
       <div className='w-full text-center'>
         <Link
           href='/projects/all-project'
-          className='my-10  inline-block text-center underline'
+          className='mt-10  inline-block text-center underline'
         >
           View All Projects
         </Link>

@@ -124,7 +124,7 @@ export const Layout = ({ children }) => {
           {children}
 
           {/* For Mobile */}
-          <p className='mb-8 block text-center  text-xs text-lightGrey md:hidden'>
+          <p className='mb-8 mt-8 block  text-center text-xs text-lightGrey md:hidden'>
             Inspired by{" "}
             <a href='https://www.kingslee.me/' className='text-white'>
               kingslee.me
