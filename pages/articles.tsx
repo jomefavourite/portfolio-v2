@@ -55,7 +55,7 @@ const Articles: NextPageWithLayout = () => {
 
           <a
             href='https://favouritejome.hashnode.dev/'
-            className='text- mx-auto my-10 block text-center '
+            className='mx-auto my-10 block text-center underline '
             target='_blank'
             rel='noreferrer'
           >

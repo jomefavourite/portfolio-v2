@@ -34,7 +34,13 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const router = useRouter();
 
-  const routeToBeShown = ["projects", "resume", "articles"];
+  const routeToBeShown = [
+    "projects",
+    "resume",
+    "articles",
+    "experiences",
+    "about",
+  ];
 
   return (
     <nav className='sticky top-0 z-50 bg-[#15151569] py-5 shadow-inner backdrop-blur-[6px] lg:hidden'>
