@@ -20,13 +20,14 @@ const Experiences: NextPageWithLayout = () => {
     {
       company: "Pelrio",
       description:
-        "Pelrio is a simple expense & cashflow management tool that utilizes artificial intelligence to provide real-time analytics, dynamic forecasting, and expense control for small business owners.",
+        "Pelrio is a financial management tool that lets you manage your business finances, forecast your cash flow, and get actionable insights, all in one place.",
       role: "Frontend Developer",
       location: "Remote",
       period: "Mar 2022 - Present",
       achievements: [
-        "Worked on transforming the business data, forecast data into representational charts which illustrate monthly or quarterly cashflow",
-        "Built several UI layouts along with tools/technologies such as React, React Query, Graphql, Internationalization",
+        "Transformed business data into representational charts that illustrate financial cash flow.",
+        "Integrated internationalisation for multilingual support.",
+        "Implemented real-time updates, across all updates in the application.",
         "Promoted from an Intern developer to a Frontend Developer",
       ],
       companyLink: "https://pelrio.com/",
