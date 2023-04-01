@@ -104,10 +104,10 @@ const Home: NextPage = () => {
 
           <Link
             href='/projects'
-            className='group mx-auto mt-4 flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] p-2 px-8 text-white shadow-xl transition-transform'
+            className='group mx-auto mt-4 box-border flex w-fit items-center justify-center gap-3 border-4 border-transparent bg-[#2f2f2f] py-2 px-8 text-white shadow-xl  transition-all duration-200 ease-out hover:border-l-gray-400/20 hover:border-b-gray-400/20'
           >
             Explore{" "}
-            <BsArrowRight className='transform duration-200 ease-out group-hover:translate-x-2' />
+            <BsArrowRight className='transform group-hover:translate-x-2' />
           </Link>
         </div>
       </main>
