@@ -7,7 +7,6 @@ import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { Socials } from "../utils";
-// import { HiExternalLink } from "react-icons/hi";
 import { useBlogPost } from "../hooks/useBlogPost";
 import { SiLinkedin } from "react-icons/si";
 
@@ -35,6 +34,8 @@ const socials: Socials[] = [
 ];
 
 const Home: NextPage = () => {
+  // Calling this hook here, so the articles would be cache on the
+  // index page, before moving to the articles page
   useBlogPost("Favourite");
 
   return (
@@ -104,10 +105,10 @@ const Home: NextPage = () => {
 
           <Link
             href='/projects'
-            className='group mx-auto mt-4 flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] p-2 px-8 text-white shadow-xl transition-transform'
+            className='group mx-auto mt-4 box-border flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] py-2 px-8 text-white shadow-xl  transition-all duration-200 ease-out'
           >
             Explore{" "}
-            <BsArrowRight className='transform duration-200 ease-out group-hover:translate-x-2' />
+            <BsArrowRight className='transform group-hover:translate-x-2' />
           </Link>
         </div>
       </main>
