@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { PostResponse } from "../hooks/useBlogPost";
 import { AiOutlineRead } from "react-icons/ai";

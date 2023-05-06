@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { HiCode, HiExternalLink } from "react-icons/hi";
 import { Project } from "../utils";

@@ -1,12 +1,10 @@
 import React from "react";
-import { Layout } from "../../components/Layout";
 import { otherProjects, pinnedProjects } from "../../utils";
-import { NextPageWithLayout } from "../_app";
 import Head from "next/head";
-import ProjectCard from "../../components/ProjectCard";
+import ProjectCard from "../../../components/ProjectCard";
 import Link from "next/link";
 
-const Projects: NextPageWithLayout = () => {
+const Projects = () => {
   return (
     <div className=' '>
       <Head>
@@ -55,8 +53,8 @@ const Projects: NextPageWithLayout = () => {
   );
 };
 
-Projects.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
-};
+// Projects.getLayout = function getLayout(page) {
+//   return <Layout>{page}</Layout>;
+// };
 
 export default Projects;
