@@ -1,23 +1,24 @@
 import React from "react";
-import { otherProjects, pinnedProjects } from "../../utils";
-import Head from "next/head";
+import { otherProjects, pinnedProjects } from "../../../utils";
 import ProjectCard from "../../../components/ProjectCard";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Favourite Jome - Projects",
+  description: "Favourite Jome several projects",
+};
 
 const Projects = () => {
   return (
     <div className=' '>
-      <Head>
-        <title>Favourite Jome - Projects</title>
-        <meta name='description' content='Favourite Jome several projects' />
-      </Head>
       {/* <h2 className='text-heading'>Projects</h2> */}
 
-      <style jsx global>{`
+      {/* <style jsx global>{`
         body > div {
           min-height: 200%;
         }
-      `}</style>
+      `}</style> */}
 
       <div className='space-y-8'>
         <div>

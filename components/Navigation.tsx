@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
@@ -33,7 +33,7 @@ const socials: Socials[] = [
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const router = useRouter();
+  const pathname = usePathname();
 
   const routeToBeShown = [
     "projects",
@@ -48,11 +48,11 @@ const Navigation = () => {
       <div className='container z-30 flex justify-between'>
         <h2 className='flex gap-3 font-bold'>
           <Link href='/'>FavouriteJome.</Link>
-          {routeToBeShown.includes(router.route.slice(1)) && (
+          {routeToBeShown.includes(pathname.slice(1)) && (
             <>
               /
               <span className='capitalize tracking-wider'>
-                {router.route.slice(1)}
+                {pathname.slice(1)}
               </span>
             </>
           )}

@@ -1,22 +1,11 @@
-"use client";
-import Head from "next/head";
-import React from "react";
-import ArticleCard from "../../components/ArticleCard";
-import { useBlogPost } from "../../hooks/useBlogPost";
+import React from 'react'
 
-const Articles = () => {
-  const { data, isLoading } = useBlogPost("Favourite");
-
+export default function Loading() {
   return (
-    <div>
-      <Head>
-        <title>Favourite Jome - Articles</title>
-      </Head>
+    <>
+     <h2 className='mb-3 uppercase text-lightGrey'>Recent (7)</h2>
 
-      <h2 className='mb-3 uppercase text-lightGrey'>Recent (6)</h2>
-
-      {isLoading ? (
-        <div className='group grid gap-2 md:grid-cols-2 md:grid-rows-3'>
+       <div className='group grid gap-2 md:grid-cols-2 md:grid-rows-3'>
           {Array(6)
             .fill(0)
             .map((arr, ind) => (
@@ -43,30 +32,6 @@ const Articles = () => {
               </div>
             ))}
         </div>
-      ) : (
-        <>
-          <div className='group grid gap-2 md:grid-cols-2 md:grid-rows-3'>
-            {data.map((post, ind) => (
-              <ArticleCard key={ind} post={post} />
-            ))}
-          </div>
-
-          <a
-            href='https://favouritejome.hashnode.dev/'
-            className='mx-auto my-10 block text-center underline '
-            target='_blank'
-            rel='noreferrer'
-          >
-            View All
-          </a>
         </>
-      )}
-    </div>
-  );
-};
-
-// Articles.getLayout = function getLayout(page) {
-//   return <Layout>{page}</Layout>;
-// };
-
-export default Articles;
+  )
+}

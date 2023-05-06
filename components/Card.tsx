@@ -1,7 +1,7 @@
 import React from "react";
 
 type CardProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   ind?: number;
   type?: "box" | "card" | undefined;
 };
