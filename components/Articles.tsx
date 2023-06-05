@@ -1,15 +1,13 @@
-"use client";
-import React from "react";
-import ArticleCard from "../../../components/ArticleCard";
-import { useBlogPost } from "../../../hooks/useBlogPost";
+'use client';
+import React from 'react';
+import ArticleCard from './ArticleCard';
+import { useBlogPost } from '../hooks/useBlogPost';
 
 const Articles = () => {
-  const { data, isLoading } = useBlogPost("Favourite");
+  const { data, isLoading } = useBlogPost('Favourite');
 
   return (
     <div>
-  
-
       <h2 className='mb-3 uppercase text-lightGrey'>Recent (6)</h2>
 
       {isLoading ? (
