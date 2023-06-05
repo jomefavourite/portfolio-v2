@@ -1,8 +1,8 @@
-import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { FaTwitter, FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Metadata } from "next";
 
 const SocialLinks = [
   {
@@ -46,12 +46,13 @@ const MainLinks = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Favourite Jome | Linktree",
+};
+
 function LinktreePage() {
   return (
     <>
-      <Head>
-        <title>Favourite Jome | Linktree</title>
-      </Head>
       <main className='container my-5 '>
         <div className='text-center'>
           <Image

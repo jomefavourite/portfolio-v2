@@ -1,21 +1,26 @@
+import { Metadata } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { FiDownload } from "react-icons/fi";
-import { Layout } from "../components/Layout";
-import { NextPageWithLayout } from "./_app";
+// import { Layout } from "../components/Layout";
+// import { NextPageWithLayout } from "../../_app";
 
-const Experiences: NextPageWithLayout = () => {
-  type Works = {
-    company: string;
-    description: string;
-    role: string;
-    location: string;
-    period: string;
-    companyLink: string;
-    achievements: string[];
-  };
+type Works = {
+  company: string;
+  description: string;
+  role: string;
+  location: string;
+  period: string;
+  companyLink: string;
+  achievements: string[];
+};
 
+export const metadata: Metadata = {
+  title: "Favourite Jome -  Experiences",
+};
+
+const Experiences = () => {
   const works: Works[] = [
     {
       company: "Pelrio",
@@ -50,10 +55,6 @@ const Experiences: NextPageWithLayout = () => {
   ];
   return (
     <>
-      <Head>
-        <title>Favourite Jome Experiences</title>
-      </Head>
-
       <div>
         <div className='mb-8 md:hidden'>
           <a
@@ -110,9 +111,9 @@ const Experiences: NextPageWithLayout = () => {
   );
 };
 
-Experiences.getLayout = (page) => {
-  return <Layout>{page}</Layout>;
-};
+// Experiences.getLayout = (page) => {
+//   return <Layout>{page}</Layout>;
+// };
 
 export default Experiences;
 

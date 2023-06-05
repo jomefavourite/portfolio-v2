@@ -1,16 +1,16 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
-import { Layout } from "../components/Layout";
-import { NextPageWithLayout } from "./_app";
+// import { Layout } from "../components/Layout";
+// import { NextPageWithLayout } from "./_app";
 
-const Resume: NextPageWithLayout = () => {
+export const metadata: Metadata = {
+  title: "Favourite Jome - Resume",
+};
+
+const Resume = () => {
   return (
     <>
-      <Head>
-        <title>Favourite Jome - Resume</title>
-      </Head>
-
       <h2 className='text-heading'>Resume</h2>
 
       <div className='bg-darkCard p-8 text-lightGrey'>
@@ -101,8 +101,8 @@ const Resume: NextPageWithLayout = () => {
   );
 };
 
-Resume.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
-};
+// Resume.getLayout = function getLayout(page) {
+//   return <Layout>{page}</Layout>;
+// };
 
 export default Resume;

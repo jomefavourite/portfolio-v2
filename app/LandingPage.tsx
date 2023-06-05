@@ -1,14 +1,14 @@
-import { NextPage } from "next";
-import Head from "next/head";
+"use client";
+import React from "react";
+import Navigation from "../components/Navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Navigation from "../components/Navigation";
 import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { Socials } from "../utils";
-import { useBlogPost } from "../hooks/useBlogPost";
 import { SiLinkedin } from "react-icons/si";
+import { useBlogPost } from "../hooks/useBlogPost";
 
 const socials: Socials[] = [
   {
@@ -32,45 +32,19 @@ const socials: Socials[] = [
     link: "https://www.linkedin.com/in/favourite-jome-677766184/",
   },
 ];
-
-const Home: NextPage = () => {
-  // Calling this hook here, so the articles would be cache on the
-  // index page, before moving to the articles page
+function LandingPage() {
   useBlogPost("Favourite");
 
   return (
     <div>
-      <Head>
-        <title>Favourite Jome Portfolio</title>
-        <meta name='description' content='Favourite Jome portfolio page' />
-        <link rel='icon' href='/favicon.ico' />
-        <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/apple-touch-icon.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href='/favicon-32x32.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='16x16'
-          href='/favicon-16x16.png'
-        />
-      </Head>
-
       {/* <style jsx global={false}>{`
-        body {
-          // height: 100vh;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column;
-        }
-      `}</style> */}
+    body {
+      // height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+  `}</style> */}
 
       <Navigation />
       <main className='container h-[calc(100vh-64px-104px)] text-center'>
@@ -164,6 +138,6 @@ const Home: NextPage = () => {
       </footer>
     </div>
   );
-};
+}
 
-export default Home;
+export default LandingPage;

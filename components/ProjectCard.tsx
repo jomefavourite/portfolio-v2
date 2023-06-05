@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client"
 import React from "react";
 import { HiCode, HiExternalLink } from "react-icons/hi";
 import { Project } from "../utils";

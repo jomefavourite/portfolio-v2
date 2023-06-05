@@ -1,20 +1,13 @@
-import Head from "next/head";
-import Link from "next/link";
-import React from "react";
-import ArticleCard from "../components/ArticleCard";
-import { Layout } from "../components/Layout";
-import { useBlogPost } from "../hooks/useBlogPost";
-import { NextPageWithLayout } from "./_app";
+'use client';
+import React from 'react';
+import ArticleCard from './ArticleCard';
+import { useBlogPost } from '../hooks/useBlogPost';
 
-const Articles: NextPageWithLayout = () => {
-  const { data, isLoading } = useBlogPost("Favourite");
+const Articles = () => {
+  const { data, isLoading } = useBlogPost('Favourite');
 
   return (
     <div>
-      <Head>
-        <title>Favourite Jome - Articles</title>
-      </Head>
-
       <h2 className='mb-3 uppercase text-lightGrey'>Recent (6)</h2>
 
       {isLoading ? (
@@ -67,8 +60,8 @@ const Articles: NextPageWithLayout = () => {
   );
 };
 
-Articles.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
-};
+// Articles.getLayout = function getLayout(page) {
+//   return <Layout>{page}</Layout>;
+// };
 
 export default Articles;
