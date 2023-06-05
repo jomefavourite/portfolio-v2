@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://favourite.site',
+      url: 'https://favourite.site/',
       lastModified: new Date(),
     },
     {
