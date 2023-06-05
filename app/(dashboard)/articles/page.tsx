@@ -7,7 +7,12 @@ export const metaData: Metadata = {
 };
 
 function ArticlePage() {
-  return <Articles />;
+  return (
+    <>
+      <p className='sr-only'>Hope this works. This is the Article page</p>
+      <Articles />
+    </>
+  );
 }
 
 export default ArticlePage;
