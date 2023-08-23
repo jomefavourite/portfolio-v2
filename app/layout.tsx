@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </body>
 
       <Script src='https://www.googletagmanager.com/gtag/js?id=G-55PVDQTVMW' />
-      <Script>
+      <Script id='google'>
         {`
           <!-- Google tag (gtag.js) -->
             window.dataLayer = window.dataLayer || [];
