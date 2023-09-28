@@ -1,6 +1,6 @@
 'use client';
 import { Link } from 'react-router-dom';
-import { usePathname } from 'next/navigation';
+
 import React from 'react';
 import { navigation } from '../utils';
 
@@ -11,7 +11,8 @@ type NavProps = {
 };
 
 const Nav = ({ topNav, isMenuOpen, setIsMenuOpen }: NavProps) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
+  const pathname = window.location.href;
 
   return (
     <ul className={`${topNav ? 'space-y-8' : 'space-y-5'}`}>
@@ -21,7 +22,7 @@ const Nav = ({ topNav, isMenuOpen, setIsMenuOpen }: NavProps) => {
           className={`${topNav ? 'text-center' : 'text-left'} mx-auto`}
         >
           <Link
-            href={nav.href}
+            to={nav.href}
             className={`group flex items-center text-sm transition duration-300 ease-out ${
               topNav ? 'mx-auto w-fit justify-center' : 'w-fit text-left'
             } ${pathname === nav.href ? 'text-white' : 'text-lightGrey'}`}

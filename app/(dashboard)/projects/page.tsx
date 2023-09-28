@@ -43,7 +43,7 @@ const Projects = () => {
 
       <div className='w-full text-center'>
         <Link
-          href='/projects/all-project'
+          to='/projects/all-project'
           className='mt-10  inline-block text-center underline'
         >
           View All Projects

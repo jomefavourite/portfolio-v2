@@ -1,6 +1,6 @@
 'use client';
 import { Link } from 'react-router-dom';
-import { usePathname } from 'next/navigation';
+
 import React, { useState } from 'react';
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
@@ -33,7 +33,9 @@ const socials: Socials[] = [
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const pathname = usePathname();
+  // const pathname = usePathname();
+
+  const pathname = window.location.href;
 
   const routeToBeShown = [
     'projects',

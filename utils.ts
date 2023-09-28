@@ -8,7 +8,7 @@ export interface Project {
   description: string;
   live: string | null;
   github: string | null;
-  tags: string[] | null;
+  tags: string[];
   desLink?: string;
 }
 

@@ -1,13 +1,13 @@
-"use client"
-import React from "react";
-import { HiCode, HiExternalLink } from "react-icons/hi";
-import { Project } from "../utils";
-import Card from "./Card";
+'use client';
+import React from 'react';
+import { HiCode, HiExternalLink } from 'react-icons/hi';
+import { Project } from '../utils';
+import Card from './Card';
 
 type ProjectProps = {
   project: Project;
   ind: number;
-  type?: "box" | "card" | undefined;
+  type?: 'box' | 'card' | undefined;
 };
 
 const ProjectCard = ({ project, ind, type }: ProjectProps) => {
@@ -16,20 +16,20 @@ const ProjectCard = ({ project, ind, type }: ProjectProps) => {
       <div>
         <h3 className='mb-1 text-2xl tracking-wider'>{project.title}</h3>
         <p className='text-[10px] font-medium uppercase tracking-widest text-lightGrey'>
-          {project.tags.map((tag, ind) => (
+          {project.tags?.map((tag, ind) => (
             <span key={ind}>
-              {tag} {project.tags.length - 1 === ind ? "" : "+"}{" "}
+              {tag} {project?.tags?.length - 1 === ind ? '' : '+'}{' '}
             </span>
           ))}
         </p>
       </div>
 
       <p className=' py-3 text-lightGrey'>
-        {project.description}{" "}
+        {project.description}{' '}
         {project.desLink ? (
           <a href={project.desLink} target='_blank' rel='noreferrer'>
-            {" "}
-            @nworiekingslee{" "}
+            {' '}
+            @nworiekingslee{' '}
           </a>
         ) : null}
       </p>

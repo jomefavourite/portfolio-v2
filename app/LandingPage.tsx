@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import Navigation from '../components/Navigation';
 
@@ -78,7 +77,7 @@ function LandingPage() {
           </p>
 
           <Link
-            href='/projects'
+            to='/projects'
             className='group mx-auto mt-4 box-border flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] px-8 py-2 text-white shadow-xl  transition-all duration-200 ease-out'
           >
             Explore{' '}

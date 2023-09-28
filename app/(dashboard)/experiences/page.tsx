@@ -1,6 +1,5 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { Fragment } from 'react';
 import { FiDownload } from 'react-icons/fi';
 // import { Layout } from "../components/Layout";
 // import { NextPageWithLayout } from "../../_app";
