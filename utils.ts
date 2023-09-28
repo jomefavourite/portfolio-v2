@@ -47,6 +47,14 @@ export const navigation: Nav[] = [
 
 export const pinnedProjects: Project[] = [
   {
+    title: 'AIchatbot.so',
+    description:
+      'AIchatbot is an ai powered conversational chatbot builder for customer support. it trains ChatGPT on your data and lets you add a chat widget to your website.',
+    live: 'https://aichatbot.so',
+    github: '',
+    tags: ['Nextjs', 'Typescript', 'Tailwindcss', 'GPT3.5'],
+  },
+  {
     title: 'AlgoVisual',
     description:
       'Algorithm Visualizer for Sorting, Searching and Graph Traversal algorithms',
@@ -62,14 +70,6 @@ export const pinnedProjects: Project[] = [
     github: 'https://github.com/jomefavourite/PlanDone',
     tags: ['Node.js', 'Express', 'Ejs', 'MongoDB', 'SASS'],
   },
-  {
-    title: 'CGPA-Result-Forecaster',
-    description:
-      'Calculate your GPA and CGPA score and from your score get the average estimate score to end up with a 1st, 2nd upper/lower class.',
-    live: 'https://cgpaforecaster.vercel.app/',
-    github: 'https://github.com/jomefavourite/CGPA-Result-Forecaster',
-    tags: ['JavaScript', 'gpa-calculator', 'cgpa-forecast'],
-  },
 ];
 
 export const otherProjects: Project[] = [
@@ -80,6 +80,14 @@ export const otherProjects: Project[] = [
     github: '',
     tags: ['ReactJS', 'Airtable', 'Tailwindcss'],
     desLink: 'https://github.com/nworiekingslee',
+  },
+  {
+    title: 'CGPA-Result-Forecaster',
+    description:
+      'Calculate your GPA and CGPA score and from your score get the average estimate score to end up with a 1st, 2nd upper/lower class.',
+    live: 'https://cgpaforecaster.vercel.app/',
+    github: 'https://github.com/jomefavourite/CGPA-Result-Forecaster',
+    tags: ['JavaScript', 'gpa-calculator', 'cgpa-forecast'],
   },
   // {
   //   title: "RunTechSpace",

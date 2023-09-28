@@ -1,8 +1,8 @@
-import { Metadata } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import React, { Fragment } from "react";
-import { FiDownload } from "react-icons/fi";
+import { Metadata } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import React, { Fragment } from 'react';
+import { FiDownload } from 'react-icons/fi';
 // import { Layout } from "../components/Layout";
 // import { NextPageWithLayout } from "../../_app";
 
@@ -17,40 +17,40 @@ type Works = {
 };
 
 export const metadata: Metadata = {
-  title: "Favourite Jome -  Experiences",
+  title: 'Favourite Jome -  Experiences',
 };
 
 const Experiences = () => {
   const works: Works[] = [
     {
-      company: "Pelrio",
+      company: 'Pelrio',
       description:
-        "Pelrio is a financial management tool that lets you manage your business finances, forecast your cash flow, and get actionable insights, all in one place.",
-      role: "Frontend Developer",
-      location: "Remote",
-      period: "Mar 2022 - Present",
+        'Pelrio is a financial management tool that lets you manage your business finances, forecast your cash flow, and get actionable insights, all in one place.',
+      role: 'Frontend Developer',
+      location: 'Remote',
+      period: 'Mar 2022 - Present',
       achievements: [
-        "Transformed business data into representational charts that illustrate financial cash flow.",
-        "Integrated internationalisation for multilingual support.",
-        "Implemented real-time updates, across all updates in the application.",
-        "Promoted from an Intern developer to a Frontend Developer",
+        'Transformed business data into representational charts that illustrate financial cash flow.',
+        'Integrated internationalisation for multilingual support.',
+        'Implemented real-time updates, across all updates in the application.',
+        'Promoted from an Intern developer to a Frontend Developer',
       ],
-      companyLink: "https://pelrio.com/",
+      companyLink: 'https://pelrio.com/',
     },
     {
-      company: "Vasiti",
+      company: 'Vasiti',
       description:
-        "Vasiti is an e-commerce brand that makes it possible for customers to save money and enjoy the best shopping experience while SMEs make money online and grow their business.",
-      role: "Frontend Developer Intern",
-      location: "Lagos (On site)",
-      period: "July 2021 - Nov 2021",
+        'Vasiti is an e-commerce brand that makes it possible for customers to save money and enjoy the best shopping experience while SMEs make money online and grow their business.',
+      role: 'Frontend Developer Intern',
+      location: 'Lagos (On site)',
+      period: 'July 2021 - Nov 2021',
       achievements: [
-        "As an intern at Vasiti, I got introduced to the react framework, Next.js and built several UI layouts, along with the concept of SSG, SSR and CSR",
-        "Built features that make it easy for customers to make payment using the Paystack API",
-        "I learnt about the business perspective of the company, during daily stand-ups and meeting",
-        "Learnt how teams are assigned tasks while working together",
+        'As an intern at Vasiti, I got introduced to the react framework, Next.js and built several UI layouts, along with the concept of SSG, SSR and CSR',
+        'Built features that make it easy for customers to make payment using the Paystack API',
+        'I learnt about the business perspective of the company, during daily stand-ups and meeting',
+        'Learnt how teams are assigned tasks while working together',
       ],
-      companyLink: "https://vasiti.com/",
+      companyLink: 'https://vasiti.com/',
     },
   ];
   return (
