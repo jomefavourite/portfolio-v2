@@ -1,12 +1,12 @@
-import React from "react";
-import { otherProjects, pinnedProjects } from "../../../utils";
-import ProjectCard from "../../../components/ProjectCard";
-import Link from "next/link";
-import { Metadata } from "next";
+import React from 'react';
+import { otherProjects, pinnedProjects } from '../../../utils';
+import ProjectCard from '../../../components/ProjectCard';
+import { Link } from 'react-router-dom';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Favourite Jome - Projects",
-  description: "Favourite Jome several projects",
+  title: 'Favourite Jome - Projects',
+  description: 'Favourite Jome several projects',
 };
 
 const Projects = () => {

@@ -1,53 +1,52 @@
-import Image from "next/image";
-import React from "react";
-import Link from "next/link";
-import { FaTwitter, FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
-import { Metadata } from "next";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaTwitter, FaYoutube, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { Metadata } from 'next';
 
 const SocialLinks = [
   {
     icon: <FaTwitter />,
-    link: "https://twitter.com/FavouriteJome1",
-    title: "Twitter",
+    link: 'https://twitter.com/FavouriteJome1',
+    title: 'Twitter',
   },
   {
     icon: <FaYoutube />,
-    link: "https://www.youtube.com/@favouritejome",
-    title: "Youtube",
+    link: 'https://www.youtube.com/@favouritejome',
+    title: 'Youtube',
   },
   {
     icon: <FaLinkedin />,
-    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
-    title: "LinkedIn",
+    link: 'https://www.linkedin.com/in/favourite-jome-677766184/',
+    title: 'LinkedIn',
   },
   {
     icon: <FaInstagram />,
-    link: "https://www.instagram.com/jomefavourite/",
-    title: "Instagram",
+    link: 'https://www.instagram.com/jomefavourite/',
+    title: 'Instagram',
   },
 ];
 
 const MainLinks = [
-  { link: "/", text: "Portfolio" },
-  { link: "https://favouritejome.hashnode.dev/", text: "Articles" },
-  { link: "https://github.com/jomefavourite", text: "Github" },
-  { link: "https://www.youtube.com/@favouritejome", text: "Youtube" },
+  { link: '/', text: 'Portfolio' },
+  { link: 'https://favouritejome.hashnode.dev/', text: 'Articles' },
+  { link: 'https://github.com/jomefavourite', text: 'Github' },
+  { link: 'https://www.youtube.com/@favouritejome', text: 'Youtube' },
   {
-    link: "https://www.frontendmentor.io/profile/jomefavourite",
-    text: "Frontendmentor Projects",
+    link: 'https://www.frontendmentor.io/profile/jomefavourite',
+    text: 'Frontendmentor Projects',
   },
   {
-    link: "https://portfolio.devchallenges.io/jomefavourite",
-    text: "Devchallenges Projects",
+    link: 'https://portfolio.devchallenges.io/jomefavourite',
+    text: 'Devchallenges Projects',
   },
   {
-    link: "https://www.buymeacoffee.com/tugevokuyu",
-    text: "Buy me a Coffee",
+    link: 'https://www.buymeacoffee.com/tugevokuyu',
+    text: 'Buy me a Coffee',
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Favourite Jome | Linktree",
+  title: 'Favourite Jome | Linktree',
 };
 
 function LinktreePage() {
@@ -55,15 +54,15 @@ function LinktreePage() {
     <>
       <main className='container my-5 '>
         <div className='text-center'>
-          <Image
+          <img
             src='/me.jpg'
             width={150}
             height={150}
             alt='Favourite Jome'
             style={{
-              borderRadius: "50%",
-              textAlign: "center",
-              margin: "0 auto 1rem",
+              borderRadius: '50%',
+              textAlign: 'center',
+              margin: '0 auto 1rem',
             }}
             className='mb-4'
           />
@@ -88,7 +87,7 @@ function LinktreePage() {
             ))}
           </div>
         </div>
-        <div className='group mx-auto mt-6 mb-0 max-w-[30rem] space-y-2'>
+        <div className='group mx-auto mb-0 mt-6 max-w-[30rem] space-y-2'>
           {MainLinks.map((item, ind) => (
             <div
               key={ind}

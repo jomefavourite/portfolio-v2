@@ -1,11 +1,11 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import React from "react";
+import { Metadata } from 'next';
+import { Link } from 'react-router-dom';
+import React from 'react';
 // import { Layout } from "../components/Layout";
 // import { NextPageWithLayout } from "./_app";
 
 export const metadata: Metadata = {
-  title: "Favourite Jome - Resume",
+  title: 'Favourite Jome - Resume',
 };
 
 const Resume = () => {
@@ -18,8 +18,8 @@ const Resume = () => {
           <div className='flex items-center justify-between text-white'>
             <h2 className='text-2xl'>Favourite Jome</h2>
             <div className='text-sm'>
-              <Link href='#'>LinkedIn</Link>
-              <Link href='#'>Download</Link>
+              <Link to='#'>LinkedIn</Link>
+              <Link to='#'>Download</Link>
             </div>
           </div>
           <p className='mt-2 text-white'>Frontend Developer</p>
@@ -56,7 +56,7 @@ const Resume = () => {
                 January 2021 - January 2022
               </p>
               <p className='sc-himrzO cgcgUL'>
-                {" "}
+                {' '}
                 I contributed in developing user interfaces for quite a number
                 of products while learning new skills.
               </p>

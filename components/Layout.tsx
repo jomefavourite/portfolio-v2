@@ -1,36 +1,35 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import Navigation from "./Navigation";
-import { HiExternalLink } from "react-icons/hi";
-import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
-import { MdOutlineAlternateEmail } from "react-icons/md";
-import Nav from "./Nav";
-import { Socials } from "../utils";
-import { FiDownload } from "react-icons/fi";
-import { SiLinkedin } from "react-icons/si";
+import { Link } from 'react-router-dom';
+import React from 'react';
+import Navigation from './Navigation';
+import { HiExternalLink } from 'react-icons/hi';
+import { AiOutlineTwitter, AiFillGithub } from 'react-icons/ai';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
+import Nav from './Nav';
+import { Socials } from '../utils';
+import { FiDownload } from 'react-icons/fi';
+import { SiLinkedin } from 'react-icons/si';
 
 export const Layout = ({ children }) => {
   const socials: Socials[] = [
     {
-      name: "Twitter",
+      name: 'Twitter',
       icon: <AiOutlineTwitter />,
-      link: "https://twitter.com/favouritejome1",
+      link: 'https://twitter.com/favouritejome1',
     },
     {
-      name: "Github",
+      name: 'Github',
       icon: <AiFillGithub />,
-      link: "https://github.com/jomefavourite",
+      link: 'https://github.com/jomefavourite',
     },
     {
-      name: "Email",
+      name: 'Email',
       icon: <MdOutlineAlternateEmail />,
-      link: "mailto:jfjomefavourite@gmail.com",
+      link: 'mailto:jfjomefavourite@gmail.com',
     },
     {
-      name: "LinkedIn",
+      name: 'LinkedIn',
       icon: <SiLinkedin />,
-      link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+      link: 'https://www.linkedin.com/in/favourite-jome-677766184/',
     },
   ];
 
@@ -45,15 +44,15 @@ export const Layout = ({ children }) => {
                 <h1 className='font-bold md:text-5xl'>Favourite Jome</h1>
                 {/* <p className=''>Frontend Developer</p> */}
                 <p className='max-w-sm text-sm leading-relaxed text-lightGrey'>
-                  I&apos;m a{" "}
+                  I&apos;m a{' '}
                   <span className='text-white'>frontend developer</span> and I
                   create <span className='text-white'>interactive</span> web
-                  applications using frontend technologies, keeping in mind the{" "}
+                  applications using frontend technologies, keeping in mind the{' '}
                   <span className='text-white'>user experience</span> and the
-                  best <span className='text-white'>web standards</span>.{" "}
+                  best <span className='text-white'>web standards</span>.{' '}
                   <span className='block'>
-                    Also I love <span className='text-white'>learning</span>{" "}
-                    about new technologies and{" "}
+                    Also I love <span className='text-white'>learning</span>{' '}
+                    about new technologies and{' '}
                     <span className='text-white'>sharing</span> my own knowledge
                     with others.
                   </span>
@@ -75,13 +74,13 @@ export const Layout = ({ children }) => {
 
               <div>
                 <div className='flex items-center'>
-                  <Image
+                  <img
                     src='/me.jpg'
                     width={50}
                     height={50}
                     alt='Favourite Jome'
                     style={{
-                      borderRadius: "50%",
+                      borderRadius: '50%',
                     }}
                   />
 
@@ -102,15 +101,15 @@ export const Layout = ({ children }) => {
                   </div>
                 </div>
                 <p className='mt-2 text-xs text-lightGrey'>
-                  Inspired by{" "}
+                  Inspired by{' '}
                   <a href='https://www.kingslee.me/' className='text-white'>
                     kingslee.me
-                  </a>{" "}
-                  |{" "}
+                  </a>{' '}
+                  |{' '}
                   <a href='https://kadet.dev/' className='text-white'>
                     kadet.dev
-                  </a>{" "}
-                  |{" "}
+                  </a>{' '}
+                  |{' '}
                   <a href='https://www.sarahdayan.dev/' className='text-white'>
                     sarahdayan.dev
                   </a>
@@ -125,15 +124,15 @@ export const Layout = ({ children }) => {
 
           {/* For Mobile */}
           <p className='mb-8 mt-8 block  text-center text-xs text-lightGrey md:hidden'>
-            Inspired by{" "}
+            Inspired by{' '}
             <a href='https://www.kingslee.me/' className='text-white'>
               kingslee.me
-            </a>{" "}
-            |{" "}
+            </a>{' '}
+            |{' '}
             <a href='https://kadet.dev/' className='text-white'>
               kadet.dev
-            </a>{" "}
-            |{" "}
+            </a>{' '}
+            |{' '}
             <a href='https://www.sarahdayan.dev/' className='text-white'>
               sarahdayan.dev
             </a>
@@ -141,9 +140,9 @@ export const Layout = ({ children }) => {
         </section>
       </main>
       <footer
-        className='pointer-events-none fixed left-0 bottom-0 z-20 h-20 w-full'
+        className='pointer-events-none fixed bottom-0 left-0 z-20 h-20 w-full'
         style={{
-          background: "linear-gradient(180deg,#14141400,#151515)",
+          background: 'linear-gradient(180deg,#14141400,#151515)',
         }}
       ></footer>
     </>

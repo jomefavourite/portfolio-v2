@@ -1,39 +1,39 @@
-"use client";
-import React from "react";
-import Navigation from "../components/Navigation";
-import Image from "next/image";
-import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
-import { MdOutlineAlternateEmail } from "react-icons/md";
-import { Socials } from "../utils";
-import { SiLinkedin } from "react-icons/si";
-import { useBlogPost } from "../hooks/useBlogPost";
+'use client';
+import React from 'react';
+import Navigation from '../components/Navigation';
+
+import { Link } from 'react-router-dom';
+import { BsArrowRight } from 'react-icons/bs';
+import { AiOutlineTwitter, AiFillGithub } from 'react-icons/ai';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
+import { Socials } from '../utils';
+import { SiLinkedin } from 'react-icons/si';
+import { useBlogPost } from '../hooks/useBlogPost';
 
 const socials: Socials[] = [
   {
-    name: "Twitter",
+    name: 'Twitter',
     icon: <AiOutlineTwitter />,
-    link: "https://twitter.com/favouritejome1",
+    link: 'https://twitter.com/favouritejome1',
   },
   {
-    name: "Github",
+    name: 'Github',
     icon: <AiFillGithub />,
-    link: "https://github.com/jomefavourite",
+    link: 'https://github.com/jomefavourite',
   },
   {
-    name: "Email",
+    name: 'Email',
     icon: <MdOutlineAlternateEmail />,
-    link: "mailto:jfjomefavourite@gmail.com",
+    link: 'mailto:jfjomefavourite@gmail.com',
   },
   {
-    name: "LinkedIn",
+    name: 'LinkedIn',
     icon: <SiLinkedin />,
-    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+    link: 'https://www.linkedin.com/in/favourite-jome-677766184/',
   },
 ];
 function LandingPage() {
-  useBlogPost("Favourite");
+  useBlogPost('Favourite');
 
   return (
     <div>
@@ -49,15 +49,15 @@ function LandingPage() {
       <Navigation />
       <main className='container h-[calc(100vh-64px-104px)] text-center'>
         <div className='fadeIn flex h-full flex-col justify-center'>
-          <Image
+          <img
             src='/me.jpg'
             width={200}
             height={200}
             alt='Favourite Jome'
             style={{
-              borderRadius: "50%",
-              textAlign: "center",
-              margin: "0 auto 1rem",
+              borderRadius: '50%',
+              textAlign: 'center',
+              margin: '0 auto 1rem',
             }}
           />
 
@@ -65,11 +65,11 @@ function LandingPage() {
             Hi, I am Favourite Jome
           </h1>
           <p className='mx-auto max-w-md text-sm leading-relaxed text-lightGrey'>
-            I&apos;m a <span className='text-white'>frontend developer</span>{" "}
+            I&apos;m a <span className='text-white'>frontend developer</span>{' '}
             and I create <span className='text-white'>interactive</span> web
-            applications using frontend technologies, keeping in mind the{" "}
-            <span className='text-white'>user experience</span> and the best{" "}
-            <span className='text-white'>web standards</span>.{" "}
+            applications using frontend technologies, keeping in mind the{' '}
+            <span className='text-white'>user experience</span> and the best{' '}
+            <span className='text-white'>web standards</span>.{' '}
             <span className=''>
               Also I love <span className='text-white'>learning</span> about new
               technologies and <span className='text-white'>sharing</span> my
@@ -79,9 +79,9 @@ function LandingPage() {
 
           <Link
             href='/projects'
-            className='group mx-auto mt-4 box-border flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] py-2 px-8 text-white shadow-xl  transition-all duration-200 ease-out'
+            className='group mx-auto mt-4 box-border flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] px-8 py-2 text-white shadow-xl  transition-all duration-200 ease-out'
           >
-            Explore{" "}
+            Explore{' '}
             <BsArrowRight className='transform group-hover:translate-x-2' />
           </Link>
         </div>
@@ -104,7 +104,7 @@ function LandingPage() {
           ))}
         </div>
         <p className='text-sm text-lightGrey'>
-          Inspired by{" "}
+          Inspired by{' '}
           <a
             href='https://www.kingslee.me/'
             className='text-white'
@@ -113,8 +113,8 @@ function LandingPage() {
             title="Kingsley's Portfolio"
           >
             kingslee.me
-          </a>{" "}
-          |{" "}
+          </a>{' '}
+          |{' '}
           <a
             href='https://kadet.dev/'
             className='text-white'
@@ -123,8 +123,8 @@ function LandingPage() {
             title="Kadet's Portfolio"
           >
             kadet.dev
-          </a>{" "}
-          |{" "}
+          </a>{' '}
+          |{' '}
           <a
             href='https://www.sarahdayan.dev/'
             className='text-white'

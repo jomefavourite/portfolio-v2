@@ -83,7 +83,7 @@ const Experiences = () => {
                 </div>
 
                 <h2 className='flex gap-3 text-lg'>
-                  <Link href={work.companyLink} className='text-xl uppercase '>
+                  <Link to={work.companyLink} className='text-xl uppercase '>
                     {work.company}
                   </Link>
                   - <span className='text-lightGrey'>{work.role}</span>

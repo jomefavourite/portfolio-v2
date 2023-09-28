@@ -1,33 +1,33 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useState } from "react";
-import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
-import { MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLinkedin } from "react-icons/si";
-import { Socials } from "../utils";
-import Nav from "./Nav";
+'use client';
+import { Link } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
+import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
+import { SiLinkedin } from 'react-icons/si';
+import { Socials } from '../utils';
+import Nav from './Nav';
 
 const socials: Socials[] = [
   {
-    name: "Twitter",
+    name: 'Twitter',
     icon: <AiOutlineTwitter />,
-    link: "https://twitter.com/favouritejome1",
+    link: 'https://twitter.com/favouritejome1',
   },
   {
-    name: "Github",
+    name: 'Github',
     icon: <AiFillGithub />,
-    link: "https://github.com/jomefavourite",
+    link: 'https://github.com/jomefavourite',
   },
   {
-    name: "Email",
+    name: 'Email',
     icon: <MdOutlineAlternateEmail />,
-    link: "mailto:jfjomefavourite@gmail.com",
+    link: 'mailto:jfjomefavourite@gmail.com',
   },
   {
-    name: "LinkedIn",
+    name: 'LinkedIn',
     icon: <SiLinkedin />,
-    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+    link: 'https://www.linkedin.com/in/favourite-jome-677766184/',
   },
 ];
 
@@ -36,18 +36,18 @@ const Navigation = () => {
   const pathname = usePathname();
 
   const routeToBeShown = [
-    "projects",
-    "resume",
-    "articles",
-    "experiences",
-    "about",
+    'projects',
+    'resume',
+    'articles',
+    'experiences',
+    'about',
   ];
 
   return (
     <nav className='sticky top-0 z-50 bg-[#15151569] py-5 shadow-inner backdrop-blur-[6px] lg:hidden'>
       <div className='container z-30 flex justify-between'>
         <h2 className='flex gap-3 font-bold'>
-          <Link href='/'>FavouriteJome.</Link>
+          <Link to='/'>FavouriteJome.</Link>
           {routeToBeShown.includes(pathname.slice(1)) && (
             <>
               /
@@ -67,15 +67,15 @@ const Navigation = () => {
         >
           <span
             className={`block h-[2px] w-5 transform bg-white transition-transform duration-200 ${
-              isMenuOpen ? "rotate-45" : "rotate-0"
+              isMenuOpen ? 'rotate-45' : 'rotate-0'
             }`}
           ></span>
           {/* translate(-1px, -6px) rotate(-45deg) */}
           <span
             className={`block h-[2px] w-5 transform bg-white transition-transform duration-200 ${
               isMenuOpen
-                ? "-translate-x-px translate-y-[-6px] -rotate-45"
-                : "rotate-0"
+                ? '-translate-x-px translate-y-[-6px] -rotate-45'
+                : 'rotate-0'
             }`}
           ></span>
           <span className='sr-only hidden'>Menu</span>
@@ -84,7 +84,7 @@ const Navigation = () => {
 
       <style jsx global={false}>{`
         body {
-          ${isMenuOpen ? "overflow: hidden;" : ""}
+          ${isMenuOpen ? 'overflow: hidden;' : ''}
         }
 
         @media (min-width: 1024px) {
