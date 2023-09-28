@@ -84,7 +84,7 @@ const Navigation = () => {
         </button>
       </div>
 
-      <style jsx global={false}>{`
+      <style>{`
         body {
           ${isMenuOpen ? 'overflow: hidden;' : ''}
         }
