@@ -9,7 +9,7 @@ import { Socials } from '../../utils';
 import { FiDownload } from 'react-icons/fi';
 import { SiLinkedin } from 'react-icons/si';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+const Layout = () => {
   const socials: Socials[] = [
     {
       name: 'Twitter',

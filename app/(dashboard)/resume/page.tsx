@@ -1,10 +1,9 @@
-import { Metadata } from 'next';
 import { Link } from 'react-router-dom';
 import React from 'react';
 // import { Layout } from "../components/Layout";
 // import { NextPageWithLayout } from "./_app";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Favourite Jome - Resume',
 };
 

@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
@@ -16,7 +15,7 @@ type Works = {
   achievements: string[];
 };
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Favourite Jome -  Experiences',
 };
 

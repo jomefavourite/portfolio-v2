@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
  
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() Route.Sitemap {
   return [
     {
       url: 'https://www.favouritejome.site/projects',

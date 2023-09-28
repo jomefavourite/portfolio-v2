@@ -1,13 +1,13 @@
 // "use client";
-import { Metadata } from "next";
+
 // import { useBlogPost } from "../hooks/useBlogPost";
 // import getQueryClient from "../utils/getQueryClient";
 // import { dehydrate } from "@tanstack/react-query";
-import LandingPage from "@/LandingPage";
+import LandingPage from '@/LandingPage';
 
-export const metadata: Metadata = {
-  title: "Favourite Jome Portfolio",
-  description: "Favourite Jome portfolio page",
+export const metadata = {
+  title: 'Favourite Jome Portfolio',
+  description: 'Favourite Jome portfolio page',
 };
 
 {

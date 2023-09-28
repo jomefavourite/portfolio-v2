@@ -2,9 +2,8 @@ import React from 'react';
 import { otherProjects, pinnedProjects } from '../../../utils';
 import ProjectCard from '../../../components/ProjectCard';
 import { Link } from 'react-router-dom';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Favourite Jome - Projects',
   description: 'Favourite Jome several projects',
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaYoutube, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { Metadata } from 'next';
 
 const SocialLinks = [
   {
@@ -45,7 +44,7 @@ const MainLinks = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Favourite Jome | Linktree',
 };
 
