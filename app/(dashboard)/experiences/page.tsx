@@ -15,6 +15,7 @@ type Works = {
   achievements: string[];
   discontinued?: boolean;
   tools?: Array<string>;
+  groupCompany?: string;
 };
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 
 const Experiences = () => {
   // Note: You need to show collaborative or team effort in your resume
+  // Achievement needs more descriptions
 
   const works: Works[] = [
     {
@@ -35,6 +37,7 @@ const Experiences = () => {
       achievements: ['Integrating Chatbot integration to any web application'],
       companyLink: 'https://pelrio.com/',
       tools: ['Next', 'TurboRepo', 'TailwindCSS'],
+      groupCompany: 'Pelrio Analytica',
     },
     {
       company: 'Pelrio',
@@ -50,6 +53,7 @@ const Experiences = () => {
         'Promoted from an Intern developer to a Frontend Developer',
       ],
       companyLink: 'https://pelrio.com/',
+      groupCompany: 'Pelrio Analytica',
     },
     {
       company: 'Vasiti',
@@ -101,13 +105,22 @@ const Experiences = () => {
                   <Link href={work.companyLink} className='text-xl'>
                     {work.company}
                   </Link>
-                  - <span className='text-lightGrey'>{work.role}</span>
+                  <span className='text-lightGrey'>- {work.role}</span>
                 </h2>
 
                 {work.discontinued && (
                   <div className='w-fit rounded-full bg-darkCard p-2 px-4 text-xs'>
                     Vasiti is no longer in operation
                   </div>
+                )}
+                {work.groupCompany && (
+                  <a
+                    href='https://www.aichatbot.so/about'
+                    target='_blank'
+                    className='block w-fit rounded-full bg-darkCard p-2 px-4 text-xs'
+                  >
+                    {work.groupCompany}
+                  </a>
                 )}
 
                 <div className='text-lightGrey'>
