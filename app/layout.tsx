@@ -15,7 +15,7 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en' className={inter.className}>
-      <body className='h-full' suppressHydrationWarning={true}>
+      <body className='h-full layout-pattern' suppressHydrationWarning={true}>
         <Providers>{children}</Providers>
       </body>
 

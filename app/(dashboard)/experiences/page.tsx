@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
 import { FiDownload } from 'react-icons/fi';
@@ -14,6 +13,8 @@ type Works = {
   period: string;
   companyLink: string;
   achievements: string[];
+  discontinued?: boolean;
+  tools?: Array<string>;
 };
 
 export const metadata: Metadata = {
@@ -21,7 +22,20 @@ export const metadata: Metadata = {
 };
 
 const Experiences = () => {
+  // Note: You need to show collaborative or team effort in your resume
+
   const works: Works[] = [
+    {
+      company: 'AIChatbot.so',
+      description:
+        'AIChatbot is an AI powered conversational chatbot for customer service. AIChatbot enables you to create a custom GPT chatbot trained from your own data.',
+      role: 'Frontend Developer',
+      location: 'Remote',
+      period: 'July 2022 - Present',
+      achievements: ['Integrating Chatbot integration to any web application'],
+      companyLink: 'https://pelrio.com/',
+      tools: ['Next', 'TurboRepo', 'TailwindCSS'],
+    },
     {
       company: 'Pelrio',
       description:
@@ -31,7 +45,7 @@ const Experiences = () => {
       period: 'Mar 2022 - Present',
       achievements: [
         'Transformed business data into representational charts that illustrate financial cash flow.',
-        'Integrated internationalisation for multilingual support.',
+        'Integrated internationalization for multilingual support.',
         'Implemented real-time updates, across all updates in the application.',
         'Promoted from an Intern developer to a Frontend Developer',
       ],
@@ -40,17 +54,18 @@ const Experiences = () => {
     {
       company: 'Vasiti',
       description:
-        'Vasiti is an e-commerce brand that makes it possible for customers to save money and enjoy the best shopping experience while SMEs make money online and grow their business.',
+        'Vasiti was an e-commerce brand that made it possible for customers to save money and enjoy the best shopping experience while SMEs make money online and grow their business.',
       role: 'Frontend Developer Intern',
       location: 'Lagos (On site)',
       period: 'July 2021 - Nov 2021',
+      discontinued: true,
       achievements: [
         'As an intern at Vasiti, I got introduced to the react framework, Next.js and built several UI layouts, along with the concept of SSG, SSR and CSR',
         'Built features that make it easy for customers to make payment using the Paystack API',
         'I learnt about the business perspective of the company, during daily stand-ups and meeting',
         'Learnt how teams are assigned tasks while working together',
       ],
-      companyLink: 'https://vasiti.com/',
+      companyLink: 'https://www.linkedin.com/company/vasiti.com/',
     },
   ];
   return (
@@ -67,7 +82,7 @@ const Experiences = () => {
           </a>
         </div>
 
-        <div className='space-y-8'>
+        <div className='mb-20 space-y-8'>
           {works.map((work, ind) => (
             <section key={ind} className='group flex gap-2 text-sm'>
               <aside className=''>
@@ -83,11 +98,17 @@ const Experiences = () => {
                 </div>
 
                 <h2 className='flex gap-3 text-lg'>
-                  <Link href={work.companyLink} className='text-xl uppercase '>
+                  <Link href={work.companyLink} className='text-xl'>
                     {work.company}
                   </Link>
                   - <span className='text-lightGrey'>{work.role}</span>
                 </h2>
+
+                {work.discontinued && (
+                  <div className='w-fit rounded-full bg-darkCard p-2 px-4 text-xs'>
+                    Vasiti is no longer in operation
+                  </div>
+                )}
 
                 <div className='text-lightGrey'>
                   <p>{work.description}</p>
@@ -101,6 +122,12 @@ const Experiences = () => {
                       </Fragment>
                     ))}
                   </ul>
+
+                  <div className='mt-2'>
+                    {work.tools?.map((tool, ind) => (
+                      <span key={ind}>{tool} + </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>
