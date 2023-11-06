@@ -65,7 +65,7 @@ function LandingPage() {
             Hi, I am Favourite Jome
           </h1>
           <p className='mx-auto max-w-md text-sm leading-relaxed text-lightGrey'>
-            I&apos;m a <span className='text-white'>frontend developer</span>{" "}
+            I&apos;m a <span className='text-white'>Software developer - (Frontend)</span>{" "}
             and I create <span className='text-white'>interactive</span> web
             applications using frontend technologies, keeping in mind the{" "}
             <span className='text-white'>user experience</span> and the best{" "}
