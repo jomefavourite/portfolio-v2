@@ -1,6 +1,6 @@
 import React from "react";
-import { otherProjects, pinnedProjects } from "./utils";
-import ProjectCard from "./components/ProjectCard";
+import { otherProjects, pinnedProjects } from "../utils";
+import ProjectCard from "../components/ProjectCard";
 import Link from "next/link";
 import { Metadata } from "next";
 
