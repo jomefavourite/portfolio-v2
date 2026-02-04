@@ -44,7 +44,7 @@ const Projects = () => {
 
       <div className='w-full text-center'>
         <Link
-          href='/projects/all-project'
+          href='/(dashboard)/projects'
           className='mt-10  inline-block text-center underline'
         >
           View All Projects
