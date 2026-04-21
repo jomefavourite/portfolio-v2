@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
@@ -334,16 +333,10 @@ function LandingPage() {
           className="border-t border-white/10 py-20"
         >
           <div className="container max-w-3xl">
-            <div className="mb-10 flex items-end justify-between">
+            <div className="mb-10">
               <h2 className="text-xs uppercase tracking-widest text-lightGrey">
                 Experience
               </h2>
-              <Link
-                href="/experiences"
-                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
-              >
-                Full history <BsArrowRight />
-              </Link>
             </div>
 
             <div className="space-y-0">
@@ -391,16 +384,10 @@ function LandingPage() {
           className="border-t border-white/10 py-20"
         >
           <div className="container">
-            <div className="mb-10 flex items-end justify-between">
+            <div className="mb-10">
               <h2 className="text-xs uppercase tracking-widest text-lightGrey">
                 Projects
               </h2>
-              <Link
-                href="/projects"
-                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
-              >
-                All projects <BsArrowRight />
-              </Link>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -570,13 +557,7 @@ function LandingPage() {
             {/* Header */}
             <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <span
-                  style={{ backgroundColor: "#f6c40f", color: "#000" }}
-                  className="mb-4 inline-block rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest"
-                >
-                  YouTube Show
-                </span>
-                <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/70">
+                <p className="max-w-lg text-sm leading-relaxed text-white/70">
                   A show where I sit down with interesting people — builders,
                   creatives, and leaders — to learn openly and share those
                   conversations with the world. Two seasons in and growing.
@@ -699,7 +680,7 @@ function LandingPage() {
                 Writing
               </h2>
               <a
-                href="https://favouritejome.hashnode.dev/"
+                href="https://blog.favouritejome.dev"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
