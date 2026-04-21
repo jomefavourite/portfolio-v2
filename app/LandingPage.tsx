@@ -9,6 +9,7 @@ import { SiLinkedin, SiYoutube } from "react-icons/si";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { pinnedProjects, otherProjects, Socials } from "../utils";
 import { useBlogPost } from "../hooks/useBlogPost";
+import { useYouTubeSeries } from "../hooks/useYouTubeSeries";
 import ArticleCard from "../components/ArticleCard";
 
 const socials: Socials[] = [
@@ -98,6 +99,7 @@ const navLinks = [
 
 function LandingPage() {
   const { data, isLoading } = useBlogPost("Favourite");
+  const { data: episodes, isLoading: episodesLoading } = useYouTubeSeries();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -182,16 +184,21 @@ function LandingPage() {
               width={88}
               height={88}
               alt="Favourite Jome"
-              className="mx-auto mb-5 rounded-full border border-white/15 object-cover"
+              className="border-white/15 mx-auto mb-5 rounded-full border object-cover"
             />
-            <p className="mb-4 text-xs uppercase text-lightGrey" style={{ letterSpacing: "0.2em" }}>
+            <p
+              className="mb-4 text-xs uppercase text-lightGrey"
+              style={{ letterSpacing: "0.2em" }}
+            >
               Software Engineer
             </p>
             <h1
               className="mb-5 text-5xl font-extrabold leading-[1.05] text-white md:text-6xl"
               style={{ letterSpacing: "-2px" }}
             >
-              Hi, I&apos;m<br />Favourite Jome
+              Hi, I&apos;m
+              <br />
+              Favourite Jome
             </h1>
             <p className="mx-auto mb-9 max-w-md text-base leading-relaxed text-lightGrey">
               I build reliable, performant software — from polished frontends to
@@ -524,9 +531,16 @@ function LandingPage() {
         <section
           id="series"
           style={{ backgroundColor: "#2c99d8" }}
-          className="py-20"
+          className="border-y-8 border-[#f6c40f] py-20"
         >
           <div className="container">
+            <Image
+              src="/learn-with-me-logo.svg"
+              alt="Learn With Me Series"
+              width={320}
+              height={220}
+              className="mx-auto w-28 md:w-28"
+            />
             {/* Header */}
             <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
               <div>
@@ -536,20 +550,12 @@ function LandingPage() {
                 >
                   YouTube Show
                 </span>
-                <Image
-                  src="/learn-with-me-logo.svg"
-                  alt="Learn With Me Series"
-                  width={320}
-                  height={220}
-                  className="w-64 md:w-80"
-                />
                 <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/70">
                   A show where I sit down with interesting people — builders,
                   creatives, and leaders — to learn openly and share those
                   conversations with the world. Two seasons in and growing.
                 </p>
               </div>
-
               <a
                 href="https://www.youtube.com/@favouritejome"
                 target="_blank"
@@ -563,92 +569,83 @@ function LandingPage() {
             </div>
 
             {/* Episodes grid */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  title:
-                    "The Hidden Power of Building Communities and Impact in Tech",
-                  guest: "Ibi",
-                  duration: "49:42",
-                  season: "S2",
-                  href: "https://www.youtube.com/@favouritejome",
-                },
-                {
-                  title: "Unlocking Potential: Education and Leadership",
-                  guest: "Luqman Lawal",
-                  duration: "1:04:51",
-                  season: "S2",
-                  href: "https://www.youtube.com/@favouritejome",
-                },
-                {
-                  title: "Strive for Excellence in All You Do",
-                  guest: "Isaac Oyekunle",
-                  duration: "29:18",
-                  season: "S2 · Ep 5",
-                  href: "https://www.youtube.com/@favouritejome",
-                },
-                {
-                  title: "Monetize Your Talent & Learn About Investment",
-                  guest: "Victor Oluyitan",
-                  duration: "1:04:11",
-                  season: "S2 · Ep 4",
-                  href: "https://www.youtube.com/@favouritejome",
-                },
-                {
-                  title: "From Alone to Impact",
-                  guest: "Ivy Elebesunu",
-                  duration: "59:00",
-                  season: "S2 · Ep 3",
-                  href: "https://www.youtube.com/@favouritejome",
-                },
-                {
-                  title: "Don't Underrate Your Little Beginnings",
-                  guest: "Shadrach Abba",
-                  duration: "1:28:00",
-                  season: "S2 · Ep 2",
-                  href: "https://www.youtube.com/@favouritejome",
-                },
-              ].map((ep, ind) => (
-                <a
-                  key={ind}
-                  href={ep.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex flex-col gap-3 rounded-xl p-5 transition"
-                  style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.4)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.25)")
-                  }
-                >
-                  <div className="flex items-center justify-between">
-                    <span
-                      style={{ backgroundColor: "#f6c40f", color: "#000" }}
-                      className="rounded-full px-2.5 py-0.5 text-xs font-bold"
+            {episodesLoading ? (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {Array(6)
+                  .fill(0)
+                  .map((_, i) => (
+                    <div
+                      key={i}
+                      className="animate-pulse rounded-xl"
+                      style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
                     >
-                      {ep.season}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-xs text-white/50">
-                      <BsPlayCircle size={12} />
-                      {ep.duration}
+                      <div className="h-40 w-full rounded-t-xl bg-white/10" />
+                      <div className="space-y-2 p-4">
+                        <div className="h-3 w-1/4 rounded bg-white/10" />
+                        <div className="h-3 w-full rounded bg-white/10" />
+                        <div className="h-3 w-3/4 rounded bg-white/10" />
+                      </div>
                     </div>
-                  </div>
+                  ))}
+              </div>
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {episodes?.slice(0, 6).map((ep) => (
+                  <a
+                    key={ep.videoId}
+                    href={ep.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex flex-col overflow-hidden rounded-xl transition"
+                    style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "rgba(0,0,0,0.4)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "rgba(0,0,0,0.25)")
+                    }
+                  >
+                    {/* Thumbnail */}
+                    <div className="relative h-44 w-full overflow-hidden bg-black/30">
+                      <Image
+                        src={ep.thumbnail}
+                        alt={ep.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
+                        <div
+                          className="flex h-12 w-12 items-center justify-center rounded-full"
+                          style={{ backgroundColor: "#f6c40f" }}
+                        >
+                          <BsPlayCircle size={24} color="#000" />
+                        </div>
+                      </div>
+                    </div>
 
-                  <p className="flex-1 text-sm font-semibold leading-snug text-white">
-                    {ep.title}
-                  </p>
-
-                  <p className="text-xs text-white/60">with {ep.guest}</p>
-                </a>
-              ))}
-            </div>
+                    <div className="flex flex-1 flex-col gap-2 p-4">
+                      <span
+                        style={{ backgroundColor: "#f6c40f", color: "#000" }}
+                        className="self-start rounded-full px-2.5 py-0.5 text-xs font-bold"
+                      >
+                        {ep.season}
+                      </span>
+                      <p className="flex-1 text-sm font-semibold leading-snug text-white">
+                        {ep.title}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
 
             {/* Bottom CTA */}
             <div className="mt-10 text-center">
               <p className="mb-4 text-sm text-white/60">
-                68 videos · 2 seasons · @favouritejome
+                2 seasons · @favouritejome
               </p>
               <a
                 href="https://www.youtube.com/@favouritejome"
