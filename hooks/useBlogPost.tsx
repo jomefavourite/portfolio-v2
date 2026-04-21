@@ -12,6 +12,9 @@ const ARTICLE_QUERY = `
             title
             slug
             publishedAt
+            coverImage {
+              url
+            }
           }
         }
       }
@@ -23,6 +26,7 @@ export interface PostResponse {
   title: string;
   slug: string;
   publishedAt: string;
+  coverImage?: { url: string } | null;
 }
 
 const getArticle = async (): Promise<PostResponse[]> => {
