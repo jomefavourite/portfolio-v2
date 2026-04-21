@@ -1,13 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { SiYoutube, SiInstagram } from "react-icons/si";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
-import { pinnedProjects, otherProjects, Socials } from "../utils";
+import { Socials } from "../utils";
 import { useBlogPost } from "../hooks/useBlogPost";
 import { useYouTubeSeries } from "../hooks/useYouTubeSeries";
 import ArticleCard from "../components/ArticleCard";
@@ -45,58 +43,8 @@ const socials: Socials[] = [
   },
 ];
 
-const experiences = [
-  {
-    company: "Bug0",
-    role: "Software Engineer",
-    period: "Jul 2025 – Present",
-    location: "United States · Remote",
-    description:
-      "Building AI-native browser testing infrastructure and managed QA services that help teams ship with confidence.",
-    companyLink: "https://bug0.com/",
-  },
-  {
-    company: "Hashnode",
-    role: "Customer Success Engineer",
-    period: "Jan 2024 – May 2025",
-    location: "United States · Remote",
-    description:
-      "Empowered developers by providing exceptional support across various channels, enhancing the user experience with Hashnode products.",
-    companyLink: "https://hashnode.com/",
-  },
-  {
-    company: "PureCode AI",
-    role: "Contract Technical Writer",
-    period: "Nov 2023 – Oct 2024",
-    location: "Remote",
-    description:
-      "Produced technical content and documentation for AI-powered development tooling.",
-    companyLink: "https://purecode.ai/",
-  },
-  {
-    company: "AIChatbot",
-    role: "Frontend Developer",
-    period: "Sep 2023 – Dec 2023",
-    location: "Italy · Remote",
-    description:
-      "Built frontend features with React and Next.js for an AI chatbot platform.",
-    companyLink: "#",
-  },
-  {
-    company: "Pelrio",
-    role: "Frontend Developer",
-    period: "Mar 2022 – Jan 2024",
-    location: "Remote",
-    description:
-      "Transformed business data into representational charts, integrated internationalisation for multilingual support, and implemented real-time updates across the financial management platform.",
-    companyLink: "https://pelrio.com/",
-  },
-];
-
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
   { href: "#series", label: "Series" },
   { href: "#writing", label: "Writing" },
   { href: "#contact", label: "Contact" },
@@ -232,10 +180,10 @@ function LandingPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
-                href="#projects"
+                href="#writing"
                 className="bg-white px-7 py-3 text-sm font-semibold text-dark-main transition hover:bg-white/90"
               >
-                View Projects ↓
+                Read Articles ↓
               </a>
               <a
                 href="#contact"
@@ -328,231 +276,6 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Experience */}
-        <section
-          id="experience"
-          className="border-t border-white/10 py-20"
-        >
-          <div className="container max-w-3xl">
-            <div className="mb-10 flex items-end justify-between">
-              <h2 className="text-xs uppercase tracking-widest text-lightGrey">
-                Experience
-              </h2>
-              <Link
-                href="/experiences"
-                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
-              >
-                Full history <BsArrowRight />
-              </Link>
-            </div>
-
-            <div className="space-y-0">
-              {experiences.map((exp, ind) => (
-                <div
-                  key={ind}
-                  className="group flex gap-5"
-                >
-                  <div className="flex flex-col items-center pt-1.5">
-                    <div className="h-2 w-2 shrink-0 rounded-full bg-lightGrey transition group-hover:bg-white" />
-                    {ind < experiences.length - 1 && (
-                      <div className="mt-2 w-px flex-1 bg-white/10" />
-                    )}
-                  </div>
-                  <div className="pb-10">
-                    <div className="mb-1 flex flex-wrap items-baseline gap-2">
-                      <a
-                        href={exp.companyLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-semibold text-white transition hover:underline"
-                      >
-                        {exp.company}
-                      </a>
-                      <span className="text-sm text-lightGrey">
-                        · {exp.role}
-                      </span>
-                    </div>
-                    <p className="mb-2 text-xs text-lightGrey">
-                      {exp.period} · {exp.location}
-                    </p>
-                    <p className="text-sm leading-relaxed text-lightGrey">
-                      {exp.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Projects */}
-        <section
-          id="projects"
-          className="border-t border-white/10 py-20"
-        >
-          <div className="container">
-            <div className="mb-10 flex items-end justify-between">
-              <h2 className="text-xs uppercase tracking-widest text-lightGrey">
-                Projects
-              </h2>
-              <Link
-                href="/projects"
-                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
-              >
-                All projects <BsArrowRight />
-              </Link>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {pinnedProjects.map((project, ind) => (
-                <div
-                  key={ind}
-                  className="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-darkCard transition hover:border-white/25"
-                >
-                  {project.screenshot && (
-                    <a
-                      href={project.live ?? project.github ?? "#"}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="relative block h-44 overflow-hidden bg-black"
-                    >
-                      <Image
-                        src={project.screenshot}
-                        alt={`${project.title} screenshot`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover object-top transition duration-500 group-hover:scale-105"
-                      />
-                    </a>
-                  )}
-
-                  <div className="flex flex-1 flex-col gap-3 p-5">
-                    <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-semibold text-white">
-                        {project.title}
-                      </h3>
-                      <div className="flex shrink-0 gap-2">
-                        {project.github && (
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            title="Source code"
-                            className="text-lightGrey transition hover:text-white"
-                          >
-                            <FiGithub size={15} />
-                          </a>
-                        )}
-                        {project.live && (
-                          <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noreferrer"
-                            title="Live site"
-                            className="text-lightGrey transition hover:text-white"
-                          >
-                            <FiExternalLink size={15} />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-
-                    <p className="flex-1 text-sm leading-relaxed text-lightGrey">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {project.tags?.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-lightGrey"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* More projects */}
-            <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {otherProjects
-                .filter((p) => p.screenshot)
-                .map((project, ind) => (
-                  <div
-                    key={ind}
-                    className="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-darkCard transition hover:border-white/25"
-                  >
-                    {project.screenshot && (
-                      <a
-                        href={project.live ?? "#"}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="relative block h-44 overflow-hidden bg-black"
-                      >
-                        <Image
-                          src={project.screenshot}
-                          alt={`${project.title} screenshot`}
-                          fill
-                          className="object-cover object-top transition duration-500 group-hover:scale-105"
-                        />
-                      </a>
-                    )}
-
-                    <div className="flex flex-1 flex-col gap-3 p-5">
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-semibold text-white">
-                          {project.title}
-                        </h3>
-                        <div className="flex shrink-0 gap-2">
-                          {project.github && (
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noreferrer"
-                              title="Source code"
-                              className="text-lightGrey transition hover:text-white"
-                            >
-                              <FiGithub size={15} />
-                            </a>
-                          )}
-                          {project.live && (
-                            <a
-                              href={project.live}
-                              target="_blank"
-                              rel="noreferrer"
-                              title="Live site"
-                              className="text-lightGrey transition hover:text-white"
-                            >
-                              <FiExternalLink size={15} />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-
-                      <p className="flex-1 text-sm leading-relaxed text-lightGrey">
-                        {project.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {project.tags?.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-lightGrey"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </section>
-
         {/* Learn With Me Series */}
         <section
           id="series"
@@ -570,13 +293,7 @@ function LandingPage() {
             {/* Header */}
             <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <span
-                  style={{ backgroundColor: "#f6c40f", color: "#000" }}
-                  className="mb-4 inline-block rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest"
-                >
-                  YouTube Show
-                </span>
-                <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/70">
+                <p className="max-w-lg text-sm leading-relaxed text-white/70">
                   A show where I sit down with interesting people — builders,
                   creatives, and leaders — to learn openly and share those
                   conversations with the world. Two seasons in and growing.
@@ -699,7 +416,7 @@ function LandingPage() {
                 Writing
               </h2>
               <a
-                href="https://favouritejome.hashnode.dev/"
+                href="https://blog.favouritejome.dev"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"

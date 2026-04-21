@@ -8,7 +8,7 @@ type ArticleCardProps = { post: PostResponse };
 function ArticleCard({ post }: ArticleCardProps) {
   return (
     <a
-      href={`https://favouritejome.hashnode.dev/${post.slug}`}
+      href={`https://blog.favouritejome.dev/${post.slug}`}
       target="_blank"
       rel="noreferrer"
       className="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-darkCard transition hover:border-white/25"
