@@ -157,24 +157,25 @@ function LandingPage() {
           </div>
         </nav>
 
-        {menuOpen && (
-          <div className="border-t border-white/10 bg-dark-main md:hidden">
-            <ul className="container flex flex-col gap-5 py-6">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-lightGrey transition hover:text-white"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </header>
+
+      {menuOpen && (
+        <div className="fixed inset-0 top-[57px] z-40 bg-dark-main md:hidden">
+          <ul className="container flex flex-col gap-5 py-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-lightGrey transition hover:text-white"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <main>
         {/* Hero */}
