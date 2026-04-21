@@ -179,13 +179,15 @@ function LandingPage() {
           />
 
           <div className="fadeIn relative z-10">
-            <Image
-              src="/me.jpg"
-              width={88}
-              height={88}
-              alt="Favourite Jome"
-              className="border-white/15 mx-auto mb-5 rounded-full border object-cover"
-            />
+            <div className="border-white/15 mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full border">
+              <Image
+                src="/me.png"
+                width={96}
+                height={96}
+                alt="Favourite Jome"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
             <p
               className="mb-4 text-xs uppercase text-lightGrey"
               style={{ letterSpacing: "0.2em" }}
@@ -252,7 +254,7 @@ function LandingPage() {
             <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-14">
               <div className="shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/me-new.jpg"
+                  src="/me.png"
                   width={400}
                   height={560}
                   alt="Favourite Jome"
@@ -278,10 +280,11 @@ function LandingPage() {
                   actually works for the people using it.
                 </p>
                 <p className="leading-relaxed text-lightGrey">
-                  Outside of engineering, I&apos;ve spent years writing
-                  technical content on Hashnode and hosting{" "}
+                  Outside of engineering, I'm hosting a show called{" "}
                   <span className="text-white">The Learn With Me Series</span> —
-                  a show about learning openly and sharing the process.
+                  a show about learning from the experiences of young minds, doing
+                  amazing things and sharing their process, across different
+                  sectors.
                 </p>
 
                 <div className="mt-2 flex flex-wrap items-center gap-4">
@@ -621,7 +624,10 @@ function LandingPage() {
                           className="flex h-12 w-12 items-center justify-center rounded-full"
                           style={{ backgroundColor: "#f6c40f" }}
                         >
-                          <BsPlayCircle size={24} color="#000" />
+                          <BsPlayCircle
+                            size={24}
+                            color="#000"
+                          />
                         </div>
                       </div>
                     </div>
