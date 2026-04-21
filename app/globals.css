@@ -1,13 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-dark-main: #151515;
+  --color-darkCard: #202022;
+  --color-lightGrey: #828282;
+  --font-sans: var(--font-inter);
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-dark-main text-white;
+  background-color: var(--color-dark-main);
+  color: #fff;
 }
 
 ::selection {
@@ -22,7 +28,10 @@ body {
 }
 
 .text-heading {
-  @apply mb-5 text-2xl font-bold tracking-wider;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .fadeIn {

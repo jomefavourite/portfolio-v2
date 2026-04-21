@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
-import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
+import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLinkedin, SiYoutube, SiInstagram } from "react-icons/si";
+import { SiYoutube, SiInstagram } from "react-icons/si";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { pinnedProjects, otherProjects, Socials } from "../utils";
 import { useBlogPost } from "../hooks/useBlogPost";
@@ -30,7 +30,7 @@ const socials: Socials[] = [
   },
   {
     name: "LinkedIn",
-    icon: <SiLinkedin />,
+    icon: <AiFillLinkedin />,
     link: "https://www.linkedin.com/in/favourite-jome-677766184/",
   },
   {
@@ -107,6 +107,11 @@ function LandingPage() {
   const { data: episodes, isLoading: episodesLoading } = useYouTubeSeries();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
     <div className="min-h-screen">
       {/* Sticky Navigation */}
@@ -152,24 +157,25 @@ function LandingPage() {
           </div>
         </nav>
 
-        {menuOpen && (
-          <div className="border-t border-white/10 bg-dark-main md:hidden">
-            <ul className="container flex flex-col gap-5 py-6">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-lightGrey transition hover:text-white"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </header>
+
+      {menuOpen && (
+        <div className="fixed inset-0 top-[57px] z-40 bg-dark-main md:hidden">
+          <ul className="container flex flex-col gap-5 py-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-lightGrey transition hover:text-white"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <main>
         {/* Hero */}
@@ -414,6 +420,7 @@ function LandingPage() {
                         src={project.screenshot}
                         alt={`${project.title} screenshot`}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover object-top transition duration-500 group-hover:scale-105"
                       />
                     </a>

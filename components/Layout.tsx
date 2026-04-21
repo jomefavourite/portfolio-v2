@@ -3,12 +3,11 @@ import Link from "next/link";
 import React from "react";
 import Navigation from "./Navigation";
 import { HiExternalLink } from "react-icons/hi";
-import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
+import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import Nav from "./Nav";
 import { Socials } from "../utils";
 import { FiDownload } from "react-icons/fi";
-import { SiLinkedin } from "react-icons/si";
 
 export const Layout = ({ children }) => {
   const socials: Socials[] = [
@@ -29,7 +28,7 @@ export const Layout = ({ children }) => {
     },
     {
       name: "LinkedIn",
-      icon: <SiLinkedin />,
+      icon: <AiFillLinkedin />,
       link: "https://www.linkedin.com/in/favourite-jome-677766184/",
     },
   ];
