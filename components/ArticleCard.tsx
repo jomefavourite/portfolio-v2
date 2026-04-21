@@ -15,7 +15,7 @@ function ArticleCard({ post }: ArticleCardProps) {
         rel='noreferrer'
       >
         <p className='text-sm text-lightGrey'>
-          {new Date(post.dateAdded).toDateString()}
+          {new Date(post.publishedAt).toDateString()}
         </p>
 
         <h3 className='mt-6 text-lg'>{post.title}</h3>
