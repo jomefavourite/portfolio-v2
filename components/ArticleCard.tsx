@@ -19,6 +19,7 @@ function ArticleCard({ post }: ArticleCardProps) {
             src={post.coverImage.url}
             alt={post.title}
             fill
+            unoptimized={post.coverImage.url.endsWith(".gif")}
             className="object-cover object-top transition duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />

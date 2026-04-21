@@ -414,6 +414,7 @@ function LandingPage() {
                         src={project.screenshot}
                         alt={`${project.title} screenshot`}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover object-top transition duration-500 group-hover:scale-105"
                       />
                     </a>
