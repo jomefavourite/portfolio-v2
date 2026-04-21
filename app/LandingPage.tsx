@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
@@ -106,6 +106,11 @@ function LandingPage() {
   const { data, isLoading } = useBlogPost("Favourite");
   const { data: episodes, isLoading: episodesLoading } = useYouTubeSeries();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   return (
     <div className="min-h-screen">
