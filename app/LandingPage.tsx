@@ -5,7 +5,7 @@ import Link from "next/link";
 import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLinkedin, SiYoutube } from "react-icons/si";
+import { SiLinkedin, SiYoutube, SiInstagram } from "react-icons/si";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { pinnedProjects, otherProjects, Socials } from "../utils";
 import { useBlogPost } from "../hooks/useBlogPost";
@@ -37,6 +37,11 @@ const socials: Socials[] = [
     name: "YouTube",
     icon: <SiYoutube />,
     link: "https://www.youtube.com/@favouritejome",
+  },
+  {
+    name: "Instagram",
+    icon: <SiInstagram />,
+    link: "https://www.instagram.com/favouritejome/",
   },
 ];
 
@@ -127,13 +132,24 @@ function LandingPage() {
             ))}
           </ul>
 
-          <button
-            className="text-xl text-lightGrey md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.youtube.com/@favouritejome"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden items-center gap-1.5 rounded-full bg-[#FF0000] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#cc0000] md:flex"
+            >
+              <SiYoutube size={13} />
+              YouTube
+            </a>
+            <button
+              className="text-xl text-lightGrey md:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? "✕" : "☰"}
+            </button>
+          </div>
         </nav>
 
         {menuOpen && (
