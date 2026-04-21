@@ -1,14 +1,16 @@
 "use client";
-import React from "react";
-import Navigation from "../components/Navigation";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { Socials } from "../utils";
-import { SiLinkedin } from "react-icons/si";
+import { SiLinkedin, SiYoutube, SiInstagram } from "react-icons/si";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { pinnedProjects, otherProjects, Socials } from "../utils";
 import { useBlogPost } from "../hooks/useBlogPost";
+import { useYouTubeSeries } from "../hooks/useYouTubeSeries";
+import ArticleCard from "../components/ArticleCard";
 
 const socials: Socials[] = [
   {
@@ -31,110 +33,746 @@ const socials: Socials[] = [
     icon: <SiLinkedin />,
     link: "https://www.linkedin.com/in/favourite-jome-677766184/",
   },
+  {
+    name: "YouTube",
+    icon: <SiYoutube />,
+    link: "https://www.youtube.com/@favouritejome",
+  },
+  {
+    name: "Instagram",
+    icon: <SiInstagram />,
+    link: "https://www.instagram.com/favouritejome/",
+  },
 ];
+
+const experiences = [
+  {
+    company: "Bug0",
+    role: "Software Engineer",
+    period: "Jul 2025 – Present",
+    location: "United States · Remote",
+    description:
+      "Building AI-native browser testing infrastructure and managed QA services that help teams ship with confidence.",
+    companyLink: "https://bug0.com/",
+  },
+  {
+    company: "Hashnode",
+    role: "Customer Success Engineer",
+    period: "Jan 2024 – May 2025",
+    location: "United States · Remote",
+    description:
+      "Empowered developers by providing exceptional support across various channels, enhancing the user experience with Hashnode products.",
+    companyLink: "https://hashnode.com/",
+  },
+  {
+    company: "PureCode AI",
+    role: "Contract Technical Writer",
+    period: "Nov 2023 – Oct 2024",
+    location: "Remote",
+    description:
+      "Produced technical content and documentation for AI-powered development tooling.",
+    companyLink: "https://purecode.ai/",
+  },
+  {
+    company: "AIChatbot",
+    role: "Frontend Developer",
+    period: "Sep 2023 – Dec 2023",
+    location: "Italy · Remote",
+    description:
+      "Built frontend features with React and Next.js for an AI chatbot platform.",
+    companyLink: "#",
+  },
+  {
+    company: "Pelrio",
+    role: "Frontend Developer",
+    period: "Mar 2022 – Jan 2024",
+    location: "Remote",
+    description:
+      "Transformed business data into representational charts, integrated internationalisation for multilingual support, and implemented real-time updates across the financial management platform.",
+    companyLink: "https://pelrio.com/",
+  },
+];
+
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#series", label: "Series" },
+  { href: "#writing", label: "Writing" },
+  { href: "#contact", label: "Contact" },
+];
+
 function LandingPage() {
-  useBlogPost("Favourite");
+  const { data, isLoading } = useBlogPost("Favourite");
+  const { data: episodes, isLoading: episodesLoading } = useYouTubeSeries();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div>
-      {/* <style jsx global={false}>{`
-    body {
-      // height: 100vh;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-    }
-  `}</style> */}
+    <div className="min-h-screen">
+      {/* Sticky Navigation */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-dark-main/90 backdrop-blur-sm">
+        <nav className="container flex items-center justify-between py-4">
+          <a
+            href="#"
+            className="text-lg font-semibold tracking-tight"
+          >
+            FJ<span className="text-lightGrey">.</span>
+          </a>
 
-      <Navigation />
-      <main className='container h-[calc(100vh-64px-104px)] text-center'>
-        <div className='fadeIn flex h-full flex-col justify-center'>
-          <Image
-            src='/me.jpg'
-            width={200}
-            height={200}
-            alt='Favourite Jome'
+          <ul className="hidden gap-8 md:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-sm text-lightGrey transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.youtube.com/@favouritejome"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden items-center gap-1.5 rounded-full bg-[#FF0000] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#cc0000] md:flex"
+            >
+              <SiYoutube size={13} />
+              YouTube
+            </a>
+            <button
+              className="text-xl text-lightGrey md:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        </nav>
+
+        {menuOpen && (
+          <div className="border-t border-white/10 bg-dark-main md:hidden">
+            <ul className="container flex flex-col gap-5 py-6">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-lightGrey transition hover:text-white"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </header>
+
+      <main>
+        {/* Hero */}
+        <section
+          id="hero"
+          className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-20 text-center"
+          style={{
+            backgroundColor: "#111",
+            backgroundImage:
+              "radial-gradient(circle, #2a2a2a 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        >
+          {/* Central glow */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
-              borderRadius: "50%",
-              textAlign: "center",
-              margin: "0 auto 1rem",
+              width: "600px",
+              height: "600px",
+              background:
+                "radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)",
             }}
           />
 
-          <h1 className='mb-2 text-2xl font-medium md:text-4xl'>
-            Hi, I am Favourite Jome
-          </h1>
-          <p className='mx-auto max-w-md text-sm leading-relaxed text-lightGrey'>
-            I&apos;m a <span className='text-white'>Software developer - (Frontend)</span>{" "}
-            and I create <span className='text-white'>interactive</span> web
-            applications using frontend technologies, keeping in mind the{" "}
-            <span className='text-white'>user experience</span> and the best{" "}
-            <span className='text-white'>web standards</span>.{" "}
-            <span className=''>
-              Also I love <span className='text-white'>learning</span> about new
-              technologies and <span className='text-white'>sharing</span> my
-              own knowledge with others.
-            </span>
-          </p>
-
-          <Link
-            href='/projects'
-            className='group mx-auto mt-4 box-border flex w-fit items-center justify-center gap-3 bg-[#2f2f2f] py-2 px-8 text-white shadow-xl  transition-all duration-200 ease-out'
-          >
-            Explore{" "}
-            <BsArrowRight className='transform group-hover:translate-x-2' />
-          </Link>
-        </div>
-      </main>
-      <footer className='fadeIn container py-4 text-center'>
-        <div className='mb-2 flex items-center justify-center gap-3'>
-          {socials.map((social, ind) => (
-            <a
-              key={ind}
-              href={social.link}
-              className=' flex items-center gap-2'
-              target='_blank'
-              rel='noreferrer'
-              title={social.name}
+          <div className="fadeIn relative z-10">
+            <div className="border-white/15 mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full border">
+              <Image
+                src="/me.png"
+                width={96}
+                height={96}
+                alt="Favourite Jome"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+            <p
+              className="mb-4 text-xs uppercase text-lightGrey"
+              style={{ letterSpacing: "0.2em" }}
             >
-              <span className='flex items-center gap-1 text-2xl'>
-                {social.icon}
-              </span>
+              Software Engineer
+            </p>
+            <h1
+              className="mb-5 text-5xl font-extrabold leading-[1.05] text-white md:text-6xl"
+              style={{ letterSpacing: "-2px" }}
+            >
+              Hi, I&apos;m
+              <br />
+              Favourite Jome
+            </h1>
+            <p className="mx-auto mb-9 max-w-md text-base leading-relaxed text-lightGrey">
+              I build reliable, performant software — from polished frontends to
+              scalable systems. Passionate about developer experience, quality
+              engineering, and sharing knowledge openly.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#projects"
+                className="bg-white px-7 py-3 text-sm font-semibold text-dark-main transition hover:bg-white/90"
+              >
+                View Projects ↓
+              </a>
+              <a
+                href="#contact"
+                className="border border-white/20 px-7 py-3 text-sm text-lightGrey transition hover:border-white/50 hover:text-white"
+              >
+                Get in Touch
+              </a>
+            </div>
+
+            <div className="mt-10 flex items-center justify-center gap-5">
+              {socials.map((social, ind) => (
+                <a
+                  key={ind}
+                  href={social.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={social.name}
+                  className="text-2xl text-lightGrey transition hover:text-white"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About */}
+        <section
+          id="about"
+          className="border-t border-white/10 py-20"
+        >
+          <div className="container">
+            <h2 className="mb-2 text-3xl font-bold text-white">About Me</h2>
+            <p className="mb-12 text-lightGrey">
+              A glimpse into my journey and passions.
+            </p>
+
+            <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-14">
+              <div className="shrink-0 md:w-72 lg:w-80">
+                <Image
+                  src="/me.png"
+                  width={400}
+                  height={560}
+                  alt="Favourite Jome"
+                  className="w-full rounded-lg object-cover"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center gap-5">
+                <p className="leading-relaxed text-white/90">
+                  I&apos;m Favourite Jome, a Software Engineer focused on
+                  building reliable systems, great developer tooling, and
+                  seamless user experiences.
+                </p>
+                <p className="leading-relaxed text-lightGrey">
+                  My journey spans frontend development, customer engineering,
+                  and technical writing — giving me a well-rounded perspective
+                  on how software is built, used, and explained.
+                </p>
+                <p className="leading-relaxed text-lightGrey">
+                  Currently at <span className="text-white">Bug0</span>, working
+                  on AI-native browser testing infrastructure. I care deeply
+                  about code quality, performance, and making software that
+                  actually works for the people using it.
+                </p>
+                <p className="leading-relaxed text-lightGrey">
+                  Outside of engineering, I'm hosting a show called{" "}
+                  <span className="text-white">The Learn With Me Series</span> —
+                  a show about learning from the experiences of young minds, doing
+                  amazing things and sharing their process, across different
+                  sectors.
+                </p>
+
+                <div className="mt-2 flex flex-wrap items-center gap-4">
+                  <a
+                    href="mailto:jfjomefavourite@gmail.com"
+                    className="flex items-center gap-2 bg-white px-5 py-2.5 text-sm font-medium text-dark-main transition hover:bg-white/90"
+                  >
+                    Let&apos;s chat <MdOutlineAlternateEmail />
+                  </a>
+                  <a
+                    href="#series"
+                    className="text-sm text-lightGrey underline underline-offset-4 transition hover:text-white"
+                  >
+                    The Learn With Me Series →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section
+          id="experience"
+          className="border-t border-white/10 py-20"
+        >
+          <div className="container max-w-3xl">
+            <div className="mb-10 flex items-end justify-between">
+              <h2 className="text-xs uppercase tracking-widest text-lightGrey">
+                Experience
+              </h2>
+              <Link
+                href="/experiences"
+                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
+              >
+                Full history <BsArrowRight />
+              </Link>
+            </div>
+
+            <div className="space-y-0">
+              {experiences.map((exp, ind) => (
+                <div
+                  key={ind}
+                  className="group flex gap-5"
+                >
+                  <div className="flex flex-col items-center pt-1.5">
+                    <div className="h-2 w-2 shrink-0 rounded-full bg-lightGrey transition group-hover:bg-white" />
+                    {ind < experiences.length - 1 && (
+                      <div className="mt-2 w-px flex-1 bg-white/10" />
+                    )}
+                  </div>
+                  <div className="pb-10">
+                    <div className="mb-1 flex flex-wrap items-baseline gap-2">
+                      <a
+                        href={exp.companyLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-semibold text-white transition hover:underline"
+                      >
+                        {exp.company}
+                      </a>
+                      <span className="text-sm text-lightGrey">
+                        · {exp.role}
+                      </span>
+                    </div>
+                    <p className="mb-2 text-xs text-lightGrey">
+                      {exp.period} · {exp.location}
+                    </p>
+                    <p className="text-sm leading-relaxed text-lightGrey">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section
+          id="projects"
+          className="border-t border-white/10 py-20"
+        >
+          <div className="container">
+            <div className="mb-10 flex items-end justify-between">
+              <h2 className="text-xs uppercase tracking-widest text-lightGrey">
+                Projects
+              </h2>
+              <Link
+                href="/projects"
+                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
+              >
+                All projects <BsArrowRight />
+              </Link>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {pinnedProjects.map((project, ind) => (
+                <div
+                  key={ind}
+                  className="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-darkCard transition hover:border-white/25"
+                >
+                  {project.screenshot && (
+                    <a
+                      href={project.live ?? project.github ?? "#"}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="relative block h-44 overflow-hidden bg-black"
+                    >
+                      <Image
+                        src={project.screenshot}
+                        alt={`${project.title} screenshot`}
+                        fill
+                        className="object-cover object-top transition duration-500 group-hover:scale-105"
+                      />
+                    </a>
+                  )}
+
+                  <div className="flex flex-1 flex-col gap-3 p-5">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="font-semibold text-white">
+                        {project.title}
+                      </h3>
+                      <div className="flex shrink-0 gap-2">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noreferrer"
+                            title="Source code"
+                            className="text-lightGrey transition hover:text-white"
+                          >
+                            <FiGithub size={15} />
+                          </a>
+                        )}
+                        {project.live && (
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noreferrer"
+                            title="Live site"
+                            className="text-lightGrey transition hover:text-white"
+                          >
+                            <FiExternalLink size={15} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    <p className="flex-1 text-sm leading-relaxed text-lightGrey">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {project.tags?.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-lightGrey"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* More projects */}
+            <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {otherProjects
+                .filter((p) => p.screenshot)
+                .map((project, ind) => (
+                  <div
+                    key={ind}
+                    className="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-darkCard transition hover:border-white/25"
+                  >
+                    {project.screenshot && (
+                      <a
+                        href={project.live ?? "#"}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="relative block h-44 overflow-hidden bg-black"
+                      >
+                        <Image
+                          src={project.screenshot}
+                          alt={`${project.title} screenshot`}
+                          fill
+                          className="object-cover object-top transition duration-500 group-hover:scale-105"
+                        />
+                      </a>
+                    )}
+
+                    <div className="flex flex-1 flex-col gap-3 p-5">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="font-semibold text-white">
+                          {project.title}
+                        </h3>
+                        <div className="flex shrink-0 gap-2">
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              title="Source code"
+                              className="text-lightGrey transition hover:text-white"
+                            >
+                              <FiGithub size={15} />
+                            </a>
+                          )}
+                          {project.live && (
+                            <a
+                              href={project.live}
+                              target="_blank"
+                              rel="noreferrer"
+                              title="Live site"
+                              className="text-lightGrey transition hover:text-white"
+                            >
+                              <FiExternalLink size={15} />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+
+                      <p className="flex-1 text-sm leading-relaxed text-lightGrey">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {project.tags?.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-lightGrey"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Learn With Me Series */}
+        <section
+          id="series"
+          style={{ backgroundColor: "#2c99d8" }}
+          className="border-y-8 border-[#f6c40f] py-20"
+        >
+          <div className="container">
+            <Image
+              src="/learn-with-me-logo.svg"
+              alt="Learn With Me Series"
+              width={320}
+              height={220}
+              className="mx-auto w-28 md:w-28"
+            />
+            {/* Header */}
+            <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <span
+                  style={{ backgroundColor: "#f6c40f", color: "#000" }}
+                  className="mb-4 inline-block rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest"
+                >
+                  YouTube Show
+                </span>
+                <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/70">
+                  A show where I sit down with interesting people — builders,
+                  creatives, and leaders — to learn openly and share those
+                  conversations with the world. Two seasons in and growing.
+                </p>
+              </div>
+              <a
+                href="https://www.youtube.com/@favouritejome"
+                target="_blank"
+                rel="noreferrer"
+                style={{ backgroundColor: "#f6c40f", color: "#000" }}
+                className="flex shrink-0 items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition hover:opacity-90"
+              >
+                <BsPlayCircle size={18} />
+                Watch on YouTube
+              </a>
+            </div>
+
+            {/* Episodes grid */}
+            {episodesLoading ? (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {Array(6)
+                  .fill(0)
+                  .map((_, i) => (
+                    <div
+                      key={i}
+                      className="animate-pulse rounded-xl"
+                      style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
+                    >
+                      <div className="h-40 w-full rounded-t-xl bg-white/10" />
+                      <div className="space-y-2 p-4">
+                        <div className="h-3 w-1/4 rounded bg-white/10" />
+                        <div className="h-3 w-full rounded bg-white/10" />
+                        <div className="h-3 w-3/4 rounded bg-white/10" />
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {episodes?.slice(0, 6).map((ep) => (
+                  <a
+                    key={ep.videoId}
+                    href={ep.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex flex-col overflow-hidden rounded-xl border-2 border-white/20 transition hover:border-[#f6c40f]"
+                    style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "rgba(0,0,0,0.4)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "rgba(0,0,0,0.25)")
+                    }
+                  >
+                    {/* Thumbnail */}
+                    <div className="relative h-44 w-full overflow-hidden bg-black/30">
+                      <Image
+                        src={ep.thumbnail}
+                        alt={ep.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
+                        <div
+                          className="flex h-12 w-12 items-center justify-center rounded-full"
+                          style={{ backgroundColor: "#f6c40f" }}
+                        >
+                          <BsPlayCircle
+                            size={24}
+                            color="#000"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-1 flex-col gap-2 p-4">
+                      <span
+                        style={{ backgroundColor: "#f6c40f", color: "#000" }}
+                        className="self-start rounded-full px-2.5 py-0.5 text-xs font-bold"
+                      >
+                        {ep.season}
+                      </span>
+                      <p className="flex-1 text-sm font-semibold leading-snug text-white">
+                        {ep.title}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* Bottom CTA */}
+            <div className="mt-10 text-center">
+              <p className="mb-4 text-sm text-white/60">
+                2 seasons · @favouritejome
+              </p>
+              <a
+                href="https://www.youtube.com/@favouritejome"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-semibold text-white underline underline-offset-4 opacity-80 transition hover:opacity-100"
+              >
+                View all episodes →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Writing */}
+        <section
+          id="writing"
+          className="border-t border-white/10 py-20"
+        >
+          <div className="container">
+            <div className="mb-10 flex items-end justify-between">
+              <h2 className="text-xs uppercase tracking-widest text-lightGrey">
+                Writing
+              </h2>
+              <a
+                href="https://favouritejome.hashnode.dev/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-sm text-lightGrey transition hover:text-white"
+              >
+                All articles <BsArrowRight />
+              </a>
+            </div>
+
+            {isLoading ? (
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {Array(6)
+                  .fill(0)
+                  .map((_, ind) => (
+                    <div
+                      key={ind}
+                      className="border border-white/10 p-6"
+                    >
+                      <div className="animate-pulse space-y-4">
+                        <div className="h-2.5 w-1/3 rounded bg-white/10" />
+                        <div className="h-3 w-full rounded bg-white/10" />
+                        <div className="h-3 w-3/4 rounded bg-white/10" />
+                        <div className="h-2.5 w-1/4 rounded bg-white/10" />
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            ) : (
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {data?.slice(0, 6).map((post, ind) => (
+                  <ArticleCard
+                    key={ind}
+                    post={post}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section
+          id="contact"
+          className="border-t border-white/10 py-20"
+        >
+          <div className="container max-w-xl text-center">
+            <h2 className="mb-4 text-3xl font-bold">Get In Touch</h2>
+            <p className="mb-8 leading-relaxed text-lightGrey">
+              Whether you have a project in mind, want to collaborate, or just
+              want to say hi — my inbox is always open.
+            </p>
+            <a
+              href="mailto:jfjomefavourite@gmail.com"
+              className="inline-flex items-center gap-3 bg-white px-8 py-3 font-medium text-dark-main transition hover:bg-white/90"
+            >
+              <MdOutlineAlternateEmail />
+              Say Hello
             </a>
-          ))}
+
+            <div className="mt-10 flex items-center justify-center gap-5">
+              {socials.map((social, ind) => (
+                <a
+                  key={ind}
+                  href={social.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={social.name}
+                  className="text-2xl text-lightGrey transition hover:text-white"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-white/10 py-8">
+        <div className="container flex flex-col items-center justify-between gap-4 text-center text-sm text-lightGrey md:flex-row">
+          <p>© {new Date().getFullYear()} Favourite Jome</p>
         </div>
-        <p className='text-sm text-lightGrey'>
-          Inspired by{" "}
-          <a
-            href='https://www.kingslee.me/'
-            className='text-white'
-            target='_blank'
-            rel='noreferrer'
-            title="Kingsley's Portfolio"
-          >
-            kingslee.me
-          </a>{" "}
-          |{" "}
-          <a
-            href='https://kadet.dev/'
-            className='text-white'
-            target='_blank'
-            rel='noreferrer'
-            title="Kadet's Portfolio"
-          >
-            kadet.dev
-          </a>{" "}
-          |{" "}
-          <a
-            href='https://www.sarahdayan.dev/'
-            className='text-white'
-            target='_blank'
-            rel='noreferrer'
-            title="Sarah's Portfolio"
-          >
-            sarahdayan.dev
-          </a>
-        </p>
       </footer>
     </div>
   );
