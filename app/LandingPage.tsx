@@ -596,7 +596,7 @@ function LandingPage() {
                     href={ep.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex flex-col overflow-hidden rounded-xl transition"
+                    className="group flex flex-col overflow-hidden rounded-xl border-2 border-white/20 transition hover:border-[#f6c40f]"
                     style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
                     onMouseEnter={(e) =>
                       (e.currentTarget.style.backgroundColor =
