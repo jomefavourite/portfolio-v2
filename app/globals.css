@@ -10,6 +10,11 @@ body {
   @apply bg-dark-main text-white;
 }
 
+::selection {
+  background-color: #ffffff;
+  color: #151515;
+}
+
 .container {
   width: 90%;
   margin-inline: auto;

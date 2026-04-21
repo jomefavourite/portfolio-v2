@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BsArrowRight, BsArrowDown, BsPlayCircle } from "react-icons/bs";
+import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
 import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { SiLinkedin, SiYoutube } from "react-icons/si";
@@ -157,38 +157,58 @@ function LandingPage() {
         {/* Hero */}
         <section
           id="hero"
-          className="container flex min-h-[calc(100vh-65px)] flex-col items-center justify-center py-20 text-center"
+          className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-20 text-center"
+          style={{
+            backgroundColor: "#111",
+            backgroundImage:
+              "radial-gradient(circle, #2a2a2a 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
         >
-          <div className="fadeIn">
+          {/* Central glow */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{
+              width: "600px",
+              height: "600px",
+              background:
+                "radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)",
+            }}
+          />
+
+          <div className="fadeIn relative z-10">
             <Image
               src="/me.jpg"
-              width={110}
-              height={110}
+              width={88}
+              height={88}
               alt="Favourite Jome"
-              className="mx-auto mb-6 rounded-full"
+              className="mx-auto mb-5 rounded-full border border-white/15 object-cover"
             />
-            <p className="mb-3 text-xs uppercase tracking-widest text-lightGrey">
+            <p className="mb-4 text-xs uppercase text-lightGrey" style={{ letterSpacing: "0.2em" }}>
               Software Engineer
             </p>
-            <h1 className="mb-5 text-4xl font-bold leading-tight md:text-6xl">
-              Hi, I&apos;m <span className="text-white">Favourite Jome</span>
+            <h1
+              className="mb-5 text-5xl font-extrabold leading-[1.05] text-white md:text-6xl"
+              style={{ letterSpacing: "-2px" }}
+            >
+              Hi, I&apos;m<br />Favourite Jome
             </h1>
-            <p className="mx-auto mb-8 max-w-lg text-base leading-relaxed text-lightGrey">
+            <p className="mx-auto mb-9 max-w-md text-base leading-relaxed text-lightGrey">
               I build reliable, performant software — from polished frontends to
               scalable systems. Passionate about developer experience, quality
               engineering, and sharing knowledge openly.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#projects"
-                className="flex items-center gap-2 bg-white px-6 py-3 text-sm font-medium text-dark-main transition hover:bg-white/90"
+                className="bg-white px-7 py-3 text-sm font-semibold text-dark-main transition hover:bg-white/90"
               >
-                View Projects <BsArrowDown />
+                View Projects ↓
               </a>
               <a
                 href="#contact"
-                className="flex items-center gap-2 border border-white/20 px-6 py-3 text-sm text-lightGrey transition hover:border-white hover:text-white"
+                className="border border-white/20 px-7 py-3 text-sm text-lightGrey transition hover:border-white/50 hover:text-white"
               >
                 Get in Touch
               </a>
