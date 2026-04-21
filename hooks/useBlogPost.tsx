@@ -36,7 +36,9 @@ const getArticle = async (): Promise<PostResponse[]> => {
 };
 
 export const useBlogPost = (_username?: string) => {
-  return useQuery(["articles"], getArticle, {
+  return useQuery({
+    queryKey: ["articles"],
+    queryFn: getArticle,
     refetchOnWindowFocus: false,
   });
 };

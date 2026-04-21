@@ -10,4 +10,8 @@ const getEpisodes = async (): Promise<Episode[]> => {
 };
 
 export const useYouTubeSeries = () =>
-  useQuery(["youtube-series"], getEpisodes, { refetchOnWindowFocus: false });
+  useQuery({
+    queryKey: ["youtube-series"],
+    queryFn: getEpisodes,
+    refetchOnWindowFocus: false,
+  });

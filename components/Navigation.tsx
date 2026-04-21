@@ -2,9 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
+import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLinkedin } from "react-icons/si";
 import { Socials } from "../utils";
 import Nav from "./Nav";
 
@@ -26,7 +25,7 @@ const socials: Socials[] = [
   },
   {
     name: "LinkedIn",
-    icon: <SiLinkedin />,
+    icon: <AiFillLinkedin />,
     link: "https://www.linkedin.com/in/favourite-jome-677766184/",
   },
 ];

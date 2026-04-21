@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight, BsPlayCircle } from "react-icons/bs";
-import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
+import { AiOutlineTwitter, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { SiLinkedin, SiYoutube, SiInstagram } from "react-icons/si";
+import { SiYoutube, SiInstagram } from "react-icons/si";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { pinnedProjects, otherProjects, Socials } from "../utils";
 import { useBlogPost } from "../hooks/useBlogPost";
@@ -30,7 +30,7 @@ const socials: Socials[] = [
   },
   {
     name: "LinkedIn",
-    icon: <SiLinkedin />,
+    icon: <AiFillLinkedin />,
     link: "https://www.linkedin.com/in/favourite-jome-677766184/",
   },
   {
