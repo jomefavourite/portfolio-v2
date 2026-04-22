@@ -552,7 +552,7 @@ function LandingPage() {
               alt="Learn With Me Series"
               width={320}
               height={220}
-              className="mx-auto w-28 md:w-28"
+              className="mx-auto mb-8 w-28 md:w-28"
             />
             {/* Header */}
             <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
