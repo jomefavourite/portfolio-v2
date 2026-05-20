@@ -1,15 +1,17 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-const endpoint = "https://api.hashnode.com/";
+const endpoint = "https://gql.hashnode.com/";
 const ARTICLE_QUERY = `
   {
-    user(username: "Favourite") {
-      publication {
-        posts(page: 0) {
-          title
-          slug
-          dateAdded
+    publication(host: "favouritejome.hashnode.dev") {
+      posts(first: 6) {
+        edges {
+          node {
+            title
+            slug
+            publishedAt
+          }
         }
       }
     }
@@ -18,7 +20,6 @@ const ARTICLE_QUERY = `
 
 export interface PostResponse {
   title: string;
-  brief: string;
   slug: string;
   dateAdded: string;
 }
@@ -32,9 +33,15 @@ const getArticle = async () => {
     },
   });
 
-  // console.log(response.data.data.user.publication.posts);
+  const edges = response.data.data.publication.posts.edges as {
+    node: { title: string; slug: string; publishedAt: string };
+  }[];
 
-  return response.data.data.user.publication.posts as PostResponse[];
+  return edges.map(({ node }) => ({
+    title: node.title,
+    slug: node.slug,
+    dateAdded: node.publishedAt,
+  })) as PostResponse[];
 };
 
 export const useBlogPost = (username: string) => {

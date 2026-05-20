@@ -4,7 +4,7 @@ import ArticleCard from './ArticleCard';
 import { useBlogPost } from '../hooks/useBlogPost';
 
 const Articles = () => {
-  const { data, isLoading } = useBlogPost('Favourite');
+  const { data = [], isLoading } = useBlogPost('Favourite');
 
   return (
     <div>
