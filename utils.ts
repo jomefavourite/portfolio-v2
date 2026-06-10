@@ -53,28 +53,37 @@ export const pinnedProjects: Project[] = [
       "A mobile app for building a daily habit of engaging with God's Word — memorize Bible verses with proven techniques and track your progress.",
     live: "https://intomyheart.life/",
     github: null,
-    tags: ["React Native", "Expo"],
+    tags: ["React Native", "Expo", "Convex"],
     screenshot: "/project-intomyheart.jpg",
   },
   {
     title: "BookTrackr",
     description:
-      "Track your reading journey — plan, track, and share your reading progress with calendar and fixed-days modes.",
+      "Track your reading journey — plan, track, and share your reading progress.",
     live: "https://www.booktrackr.app/",
     github: null,
-    tags: ["Nextjs", "Typescript", "Tailwindcss"],
+    tags: ["Nextjs", "Typescript", "Tailwindcss", "Convex"],
     screenshot: "/project-booktrackr.jpg",
   },
 ];
 
 export const otherProjects: Project[] = [
   {
+    title: "Lagos Finance Conference",
+    description:
+      "Event website for the Lagos Finance Conference 4.0 — a full-day financial education conference empowering young Africans to grow, build, and prosper.",
+    live: "https://lagosfinanceconference.com/",
+    github: null,
+    tags: ["Nextjs", "Tailwindcss"],
+    screenshot: "/project-lagosfinanceconference.jpg",
+  },
+  {
     title: "The Creator",
     description:
       "Media production agency website — documentary, lifestyle, events and commercials, crafting exceptional visual experiences.",
     live: "https://www.thecreator.org.uk/",
     github: null,
-    tags: ["Nextjs", "Tailwindcss"],
+    tags: ["Nextjs", "Tailwindcss", "Sanity"],
     screenshot: "/project-thecreator.jpg",
   },
   {
@@ -145,13 +154,5 @@ export const otherProjects: Project[] = [
     live: "https://www.faraday.africa/",
     github: "https://github.com/faradayafrica/Faraday-frontend",
     tags: ["ReactJS", "Airtable", "Tailwindcss"],
-  },
-
-  {
-    title: "Portfolio V2",
-    description: "Hey, this is my portfolio",
-    live: "",
-    github: "https://github.com/jomefavourite/portfolio-v2",
-    tags: ["Nextjs", "Typescript", "Tailwindcss"],
   },
 ];
