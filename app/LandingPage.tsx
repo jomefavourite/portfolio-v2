@@ -53,6 +53,7 @@ const experiences = [
     description:
       "Building AI-native browser testing infrastructure and managed QA services that help teams ship with confidence.",
     companyLink: "https://bug0.com/",
+    logo: "/logos/bug0.png",
   },
   {
     company: "Hashnode",
@@ -62,6 +63,7 @@ const experiences = [
     description:
       "Empowered developers by providing exceptional support across various channels, enhancing the user experience with Hashnode products.",
     companyLink: "https://hashnode.com/",
+    logo: "/logos/hashnode.svg",
   },
   {
     company: "PureCode AI",
@@ -71,25 +73,28 @@ const experiences = [
     description:
       "Produced technical content and documentation for AI-powered development tooling.",
     companyLink: "https://purecode.ai/",
+    logo: "/logos/purecode.png",
   },
-  {
-    company: "AIChatbot",
-    role: "Frontend Developer",
-    period: "Sep 2023 – Dec 2023",
-    location: "Italy · Remote",
-    description:
-      "Built frontend features with React and Next.js for an AI chatbot platform.",
-    companyLink: "#",
-  },
-  {
-    company: "Pelrio",
-    role: "Frontend Developer",
-    period: "Mar 2022 – Jan 2024",
-    location: "Remote",
-    description:
-      "Transformed business data into representational charts, integrated internationalisation for multilingual support, and implemented real-time updates across the financial management platform.",
-    companyLink: "https://pelrio.com/",
-  },
+  // {
+  //   company: "AIChatbot",
+  //   role: "Frontend Developer",
+  //   period: "Sep 2023 – Dec 2023",
+  //   location: "Italy · Remote",
+  //   description:
+  //     "Built frontend features with React and Next.js for an AI chatbot platform.",
+  //   companyLink: "#",
+  //   logo: "/logos/placeholder.svg",
+  // },
+  // {
+  //   company: "Pelrio",
+  //   role: "Frontend Developer",
+  //   period: "Mar 2022 – Jan 2024",
+  //   location: "Remote",
+  //   description:
+  //     "Transformed business data into representational charts, integrated internationalisation for multilingual support, and implemented real-time updates across the financial management platform.",
+  //   companyLink: "https://pelrio.com/",
+  //   logo: "/logos/pelrio.png",
+  // },
 ];
 
 const navLinks = [
@@ -345,8 +350,16 @@ function LandingPage() {
                   key={ind}
                   className="group flex gap-5"
                 >
-                  <div className="flex flex-col items-center pt-1.5">
-                    <div className="h-2 w-2 shrink-0 rounded-full bg-lightGrey transition group-hover:bg-white" />
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5 p-1.5 transition group-hover:border-white/25">
+                      <Image
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        width={28}
+                        height={28}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
                     {ind < experiences.length - 1 && (
                       <div className="mt-2 w-px flex-1 bg-white/10" />
                     )}
