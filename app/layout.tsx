@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: '%s | Favourite Jome',
   },
   description:
-    'Favourite Jome is a Software Engineer building reliable, performant software — from polished frontends to scalable systems. Explore projects, writing, and The Learn With Me Series.',
+    'Favourite Jome is a Software Engineer who builds reliable, performant software — from polished frontends to scalable systems. Explore his projects, writing, and The Learn With Me Series.',
   keywords: [
     'Favourite Jome',
     'Favourite Jome Software Engineer',
@@ -40,20 +40,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'profile',
+    firstName: 'Favourite',
+    lastName: 'Jome',
+    username: 'favouritejome',
+    gender: 'male',
     url: SITE_URL,
     siteName: 'Favourite Jome',
     title: 'Favourite Jome — Software Engineer',
     description:
-      'Favourite Jome is a Software Engineer building reliable, performant software — from polished frontends to scalable systems.',
-    images: [{ url: '/me.png', width: 853, height: 1280, alt: 'Favourite Jome' }],
+      'Favourite Jome is a Software Engineer who builds reliable, performant software — from polished frontends to scalable systems. He shares his work through projects, writing, and The Learn With Me Series.',
+    images: [{ url: '/me-portrait.png', width: 853, height: 1280, alt: 'Favourite Jome' }],
   },
   twitter: {
     card: 'summary',
     title: 'Favourite Jome — Software Engineer',
     description:
-      'Favourite Jome is a Software Engineer building reliable, performant software.',
+      'Favourite Jome is a Software Engineer. He builds reliable, performant software.',
     creator: '@favouritejome1',
-    images: ['/me.png'],
+    images: ['/me-portrait.png'],
   },
 };
 
@@ -61,11 +65,15 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Favourite Jome',
+  givenName: 'Favourite',
+  familyName: 'Jome',
+  gender: 'Male',
+  pronouns: 'he/him',
   url: SITE_URL,
-  image: `${SITE_URL}/me.png`,
+  image: `${SITE_URL}/me-portrait.png`,
   jobTitle: 'Software Engineer',
   description:
-    'Software Engineer building reliable, performant software — from polished frontends to scalable systems.',
+    'Favourite Jome is a Software Engineer who builds reliable, performant software — from polished frontends to scalable systems. He shares his work through projects, writing, and The Learn With Me Series.',
   worksFor: {
     '@type': 'Organization',
     name: 'Bug0',

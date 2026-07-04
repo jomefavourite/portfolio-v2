@@ -280,7 +280,7 @@ function LandingPage() {
             <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-14">
               <div className="shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/me.png"
+                  src="/me-portrait.png"
                   width={400}
                   height={560}
                   alt="Favourite Jome"
