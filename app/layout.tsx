@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Favourite Jome — Software Engineer',
     description:
       'Favourite Jome is a Software Engineer building reliable, performant software — from polished frontends to scalable systems.',
-    images: [{ url: '/me.png', width: 1365, height: 2048, alt: 'Favourite Jome' }],
+    images: [{ url: '/me.png', width: 853, height: 1280, alt: 'Favourite Jome' }],
   },
   twitter: {
     card: 'summary',
