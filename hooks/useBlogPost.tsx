@@ -1,38 +1,12 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import type { Post } from "../app/api/blog/route";
 
-const endpoint = "https://gql.hashnode.com/";
+export type { Post as PostResponse };
 
-const ARTICLE_QUERY = `
-  {
-    publication(host: "favouritejome.hashnode.dev") {
-      posts(first: 6) {
-        edges {
-          node {
-            title
-            slug
-            publishedAt
-            coverImage {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-export interface PostResponse {
-  title: string;
-  slug: string;
-  publishedAt: string;
-  coverImage?: { url: string } | null;
-}
-
-const getArticle = async (): Promise<PostResponse[]> => {
-  const response = await axios.post(endpoint, { query: ARTICLE_QUERY });
-  const edges = response.data.data.publication.posts.edges as { node: PostResponse }[];
-  return edges.map((edge) => edge.node);
+const getArticle = async (): Promise<Post[]> => {
+  const { data } = await axios.get<Post[]>("/api/blog");
+  return data;
 };
 
 export const useBlogPost = (_username?: string) => {
