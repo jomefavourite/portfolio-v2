@@ -1,26 +1,16 @@
 import { MetadataRoute } from 'next';
- 
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://www.favouritejome.site/projects',
+      url: 'https://favouritejome.com',
       lastModified: new Date(),
+      priority: 1,
     },
     {
-      url: 'https://www.favouritejome.site/favourite-jome_resume.pdf',
+      url: 'https://favouritejome.com/linktree',
       lastModified: new Date(),
-    },
-    {
-      url: 'https://www.favouritejome.site/articles',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://www.favouritejome.site/experiences',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://www.favouritejome.site/projects/all-project',
-      lastModified: new Date(),
+      priority: 0.5,
     },
   ];
 }

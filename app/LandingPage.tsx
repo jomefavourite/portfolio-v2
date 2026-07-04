@@ -30,7 +30,7 @@ const socials: Socials[] = [
   {
     name: "LinkedIn",
     icon: <AiFillLinkedin />,
-    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+    link: "https://www.linkedin.com/in/favourite-jome/",
   },
   {
     name: "YouTube",
