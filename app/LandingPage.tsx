@@ -207,11 +207,11 @@ function LandingPage() {
           <div className="fadeIn relative z-10">
             <div className="border-white/15 mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full border">
               <Image
-                src="/me.png"
+                src="/me-avatar.png"
                 width={96}
                 height={96}
                 alt="Favourite Jome"
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-center"
               />
             </div>
             <p
