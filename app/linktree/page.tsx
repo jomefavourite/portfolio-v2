@@ -17,7 +17,7 @@ const SocialLinks = [
   },
   {
     icon: <FaLinkedin />,
-    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+    link: "https://www.linkedin.com/in/favourite-jome/",
     title: "LinkedIn",
   },
   {
@@ -29,7 +29,7 @@ const SocialLinks = [
 
 const MainLinks = [
   { link: "/", text: "Portfolio" },
-  { link: "https://favouritejome.hashnode.dev/", text: "Articles" },
+  { link: "https://blog.favouritejome.dev", text: "Articles" },
   { link: "https://github.com/jomefavourite", text: "Github" },
   { link: "https://www.youtube.com/@favouritejome", text: "Youtube" },
   {

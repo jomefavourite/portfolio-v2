@@ -30,7 +30,7 @@ const socials: Socials[] = [
   {
     name: "LinkedIn",
     icon: <AiFillLinkedin />,
-    link: "https://www.linkedin.com/in/favourite-jome-677766184/",
+    link: "https://www.linkedin.com/in/favourite-jome/",
   },
   {
     name: "YouTube",
@@ -207,11 +207,11 @@ function LandingPage() {
           <div className="fadeIn relative z-10">
             <div className="border-white/15 mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full border">
               <Image
-                src="/me.png"
+                src="/me-avatar.png"
                 width={96}
                 height={96}
                 alt="Favourite Jome"
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-center"
               />
             </div>
             <p
@@ -280,7 +280,7 @@ function LandingPage() {
             <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-14">
               <div className="shrink-0 md:w-72 lg:w-80">
                 <Image
-                  src="/me.png"
+                  src="/me-portrait.png"
                   width={400}
                   height={560}
                   alt="Favourite Jome"
