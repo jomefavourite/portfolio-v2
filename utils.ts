@@ -69,6 +69,15 @@ export const pinnedProjects: Project[] = [
 
 export const otherProjects: Project[] = [
   {
+    title: "'Kore Akarakiri",
+    description:
+      "Portfolio site for a Lagos-based documentary and portrait photographer — showcasing brand visuals, portraits, and visual storytelling.",
+    live: "https://www.koreakarakiri.com/",
+    github: null,
+    tags: ["Nextjs", "Tailwindcss"],
+    screenshot: "/project-koreakarakiri.jpg",
+  },
+  {
     title: "Lagos Finance Conference",
     description:
       "Event website for the Lagos Finance Conference 4.0 — a full-day financial education conference empowering young Africans to grow, build, and prosper.",
