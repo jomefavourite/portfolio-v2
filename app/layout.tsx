@@ -100,6 +100,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers>{children}</Providers>
       </body>
 
+      <Script
+        src='https://sabilytics.vercel.app/script.js'
+        data-site='y11s6xo54299'
+        data-domain='favouritejome.com'
+        strategy='afterInteractive'
+      />
+
       <Script src='https://www.googletagmanager.com/gtag/js?id=G-55PVDQTVMW' />
       <Script id='google'>
         {`
