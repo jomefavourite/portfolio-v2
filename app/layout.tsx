@@ -101,7 +101,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </body>
 
       <Script
-        src='https://sabilytics.vercel.app/script.js'
+        src='https://www.sabilytics.com/script.js'
         data-site='y11s6xo54299'
         data-domain='favouritejome.com'
         strategy='afterInteractive'
